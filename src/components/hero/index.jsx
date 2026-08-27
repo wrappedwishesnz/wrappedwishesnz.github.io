@@ -25,9 +25,9 @@ export default function Hero() {
             <a href="#enquiry" className={`${styles.btn} ${styles.btnPrimary}`}>
               Start your order
             </a>
-            <a href="#gallery" className={`${styles.btn} ${styles.btnGhost}`}>
+            {/* <a href="#gallery" className={`${styles.btn} ${styles.btnGhost}`}>
               View gallery
-            </a>
+            </a> */}
           </div>
         </div>
 
