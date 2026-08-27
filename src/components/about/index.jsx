@@ -98,7 +98,7 @@ export default function About() {
           <span className={styles.eyebrow}>About</span>
           <h2>A small home studio, big on detail.</h2>
           <p>
-            Wrapped Wishes is a one-woman, home-based studio in New Zealand,
+            WrappedWishes is a one-woman, home-based studio in New Zealand,
             making personalised gifts, shadow boxes, party favours and gift
             boxes by hand — one order at a time.
           </p>
