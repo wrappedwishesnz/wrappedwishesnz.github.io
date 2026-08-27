@@ -45,8 +45,8 @@ export default function Enquiry() {
 
     try {
       await emailjs.send(
-        "service_50mm3pm",
-        "template_pwjhlwm",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         {
           name: form.name,
           email: form.email,
@@ -54,7 +54,7 @@ export default function Enquiry() {
           quantity: form.quantity,
           message: form.message,
         },
-        "IAZXp5ibY_Cov1nw1"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       setStatus("success");

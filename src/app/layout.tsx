@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { Fraunces, Nunito_Sans } from "next/font/google";
 import { AppContextProvider } from "@/store";
 import { Layout } from "@/layout";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
+
+const GA_ID = "G-NQVJH0XF31";
 
 const nunito = Nunito_Sans({
   subsets: ["latin", "latin-ext"],
@@ -36,6 +39,7 @@ export default function RootLayout({
           <Layout>{children}</Layout>
         </AppContextProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID ?? ""} />
     </html>
   );
 }
