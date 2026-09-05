@@ -1,4 +1,4 @@
-@use "../../styles/mixins" as *;
+@use "@/styles/mixins" as *;
 
 .offerings {
   padding: 110px 0;
@@ -164,4 +164,9 @@
     height: 26px;
     opacity: 0.5;
   }
+}
+.cta {
+  @include btn-primary;
+  display: inline-flex;
+  margin-top: 30px;
 }

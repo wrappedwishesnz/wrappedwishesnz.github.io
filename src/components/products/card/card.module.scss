@@ -1,0 +1,75 @@
+@use "@/styles/mixins" as *;
+
+.card {
+  display: block;
+  background: var(--paper);
+  border-radius: 16px 16px 16px 4px;
+  padding: 20px 20px 24px;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+  }
+}
+
+.hole {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper-alt);
+  border: 1.5px solid rgba(43, 27, 34, 0.15);
+  margin: 0 auto 12px;
+}
+
+.category {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 14px;
+}
+
+.thumb {
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  background: linear-gradient(155deg, var(--paper) 0%, var(--paper-deep) 100%);
+  border: 1.5px dashed rgba(122, 46, 74, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(43, 27, 34, 0.35);
+  font-size: 11px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.blurb {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.price {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+}

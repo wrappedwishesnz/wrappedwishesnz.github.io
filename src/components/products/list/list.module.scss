@@ -1,0 +1,22 @@
+// src/components/product-list/product-list.module.scss
+@use "@/styles/mixins" as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.empty {
+  text-align: center;
+  color: var(--ink-soft);
+  padding: 60px 0;
+}

@@ -14,7 +14,7 @@ export default function About() {
               stroke="var(--gold)"
               strokeWidth="2"
               fill="none"
-              stroke-linecap="round"
+              strokeLinecap="round"
             />
             <g transform="translate(108 40)">
               <path
@@ -47,19 +47,19 @@ export default function About() {
                 d="M-14 -2 q8 -6 18 0"
                 stroke="var(--wine)"
                 strokeWidth="1.6"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
               <path
                 d="M-14 9 q14 -8 28 0"
                 stroke="var(--wine)"
                 strokeWidth="1.6"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
               <path
                 d="M-14 20 q10 -6 20 0"
                 stroke="var(--wine)"
                 strokeWidth="1.6"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
             </g>
 
@@ -69,7 +69,7 @@ export default function About() {
                 stroke="var(--sage)"
                 strokeWidth="2"
                 fill="none"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
               <ellipse
                 cx="-2"

@@ -2,6 +2,7 @@ import Reveal from "../reveals";
 import { offerings } from "../../data/content";
 import { icons } from "./icons";
 import styles from "./offerings.module.scss";
+import Link from "next/link";
 
 export default function Offerings() {
   return (
@@ -14,6 +15,9 @@ export default function Offerings() {
             From heartfelt keepsakes to whimsical party extras — every piece is
             made by hand, just for you.
           </p>
+          <Link href={"/products"} className={styles.cta}>
+            View products
+          </Link>
         </Reveal>
 
         <div className={styles.grid}>

@@ -2,6 +2,7 @@
 import useStickyNav from "@/hooks/useStickyNav";
 import styles from "./navs.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Nav() {
   const scrolled = useStickyNav(40);
@@ -9,10 +10,10 @@ export default function Nav() {
   return (
     <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
-        <a href="#top" className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <Image alt="logo" src={"/logo.svg"} width={40} height={40} />
           WrappedWishes
-        </a>
+        </Link>
 
         <ul className={styles.links}>
           {/* <li>
