@@ -1,3 +1,7 @@
+import { getCategoryBySlug, getSubcategoryBySlug } from "./categories";
+
+export type ProductAvailability = "InStock" | "OutOfStock";
+
 export type Product = {
   slug: string;
   name: string;
@@ -5,9 +9,10 @@ export type Product = {
   shortDescription: string;
   price: number;
   currency: string;
-  image: string;
-  category: string;
-  availability: "InStock" | "OutOfStock";
+  images: string[]; // first entry is the cover image used on cards
+  categorySlug: string;
+  subcategorySlug?: string;
+  availability: ProductAvailability;
   sku: string;
   keywords: string[];
 };
@@ -22,8 +27,11 @@ export const products: Product[] = [
       "Personalised party bags for children's birthday celebrations.",
     price: 8,
     currency: "NZD",
-    image: "/products/birthday-party-bag.jpg",
-    category: "Party Bags",
+    images: [
+      "/products/birthday-party-bag-1.jpg",
+      "/products/birthday-party-bag-2.jpg",
+    ],
+    categorySlug: "party-favours",
     availability: "InStock",
     sku: "WW-PB-001",
     keywords: [
@@ -34,7 +42,6 @@ export const products: Product[] = [
       "party bags NZ",
     ],
   },
-
   {
     slug: "personalised-cake-toppers",
     name: "Personalised Cake Toppers",
@@ -44,8 +51,8 @@ export const products: Product[] = [
       "Custom cake toppers for birthdays and special celebrations.",
     price: 5,
     currency: "NZD",
-    image: "/products/cake-topper.jpg",
-    category: "Cake Toppers",
+    images: ["/products/cake-topper-1.jpg"],
+    categorySlug: "cake-toppers",
     availability: "InStock",
     sku: "WW-CT-001",
     keywords: [
@@ -55,7 +62,6 @@ export const products: Product[] = [
       "custom cake topper NZ",
     ],
   },
-
   {
     slug: "personalised-gift-packs",
     name: "Personalised Gift Packs",
@@ -65,8 +71,8 @@ export const products: Product[] = [
       "Personalised gift packs for birthdays and special occasions.",
     price: 15,
     currency: "NZD",
-    image: "/products/gift-pack.jpg",
-    category: "Gift Packs",
+    images: ["/products/gift-pack-1.jpg", "/products/gift-pack-2.jpg"],
+    categorySlug: "gift-hampers",
     availability: "InStock",
     sku: "WW-GP-001",
     keywords: [
@@ -76,8 +82,76 @@ export const products: Product[] = [
       "custom gifts NZ",
     ],
   },
+  {
+    slug: "memory-shadow-box",
+    name: "Memory Shadow Box",
+    description:
+      "A framed keepsake for photos, tickets & small treasures — arranged by hand behind glass. Tell us what you'd like included and we'll help plan the layout.",
+    shortDescription:
+      "A framed keepsake for photos, tickets & small treasures.",
+    price: 85,
+    currency: "NZD",
+    images: [
+      "/products/shadow-box-1.jpg",
+      "/products/shadow-box-2.jpg",
+      "/products/shadow-box-3.jpg",
+    ],
+    categorySlug: "keepsakes",
+    subcategorySlug: "shadow-boxes",
+    availability: "InStock",
+    sku: "WW-SB-001",
+    keywords: ["shadow box", "memory box", "keepsake frame NZ"],
+  },
 ];
 
 export function getProductBySlug(slug: string) {
-  return products.find(product => product.slug === slug);
+  return products.find(p => p.slug === slug);
+}
+
+export function getProductsByCategory(
+  categorySlug: string,
+  subcategorySlug?: string
+) {
+  return products.filter(
+    p =>
+      p.categorySlug === categorySlug &&
+      (!subcategorySlug || p.subcategorySlug === subcategorySlug)
+  );
+}
+
+/** Human-readable category string, e.g. "Keepsakes" or "Keepsakes > Shadow Boxes" */
+export function getCategoryLabel(product: Product): string {
+  const category = getCategoryBySlug(product.categorySlug);
+  if (!category) return "";
+  if (product.subcategorySlug) {
+    const sub = getSubcategoryBySlug(
+      product.categorySlug,
+      product.subcategorySlug
+    );
+    if (sub) return `${category.name} > ${sub.name}`;
+  }
+  return category.name;
+}
+
+/** Prefers same subcategory, falls back to same category, excludes itself. */
+export function getRelatedProducts(product: Product, limit = 4): Product[] {
+  const sameSubcategory = product.subcategorySlug
+    ? products.filter(
+        p =>
+          p.slug !== product.slug &&
+          p.categorySlug === product.categorySlug &&
+          p.subcategorySlug === product.subcategorySlug
+      )
+    : [];
+
+  if (sameSubcategory.length >= limit) return sameSubcategory.slice(0, limit);
+
+  const sameCategory = products.filter(
+    p =>
+      p.slug !== product.slug &&
+      p.categorySlug === product.categorySlug &&
+      !sameSubcategory.some(s => s.slug === p.slug)
+  );
+
+  return [...sameSubcategory, ...sameCategory].slice(0, limit);
 }

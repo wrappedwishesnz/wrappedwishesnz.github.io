@@ -1,8 +1,20 @@
-import Reveal from "../reveals";
-import { offerings } from "../../data/content";
-import { icons } from "./icons";
-import styles from "./offerings.module.scss";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+import Reveal from "../reveals";
+import { categories } from "@/data/categories";
+import { categoryIcons } from "./icons";
+import styles from "./offerings.module.scss";
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: i => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.5, ease: [0.22, 0.85, 0.32, 1] },
+  }),
+};
 
 export default function Offerings() {
   return (
@@ -15,39 +27,38 @@ export default function Offerings() {
             From heartfelt keepsakes to whimsical party extras — every piece is
             made by hand, just for you.
           </p>
-          <Link href={"/products"} className={styles.cta}>
+          <Link href="/products" className={styles.cta}>
             View products
           </Link>
         </Reveal>
 
         <div className={styles.grid}>
-          {offerings.map(item => (
-            <div key={item.title} className={styles.card}>
-              <div className={styles.hole} />
-              <span className={styles.num}>{item.num}</span>
-              <span className={styles.icon}>{icons[item.icon]}</span>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-            </div>
-          ))}
+          {categories.map((category, i) => {
+            const Icon = categoryIcons[category.slug];
+            return (
+              <motion.div
+                key={category.slug}
+                className={styles.card}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}>
+                <Link
+                  href={`/products?category=${category.slug}`}
+                  className={styles.link}>
+                  <div className={styles.hole} />
+                  <span className={styles.num}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  {Icon && <Icon className={styles.icon} strokeWidth={1.6} />}
+                  <h3>{category.name}</h3>
+                  <p>{category.description}</p>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
-
-        {/* <Reveal as="div" className={styles.galleryStrip} id="gallery">
-          {Array.from({ length: galleryPlaceholders }).map((_, i) => (
-            <div className={styles.tile} key={i}>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5">
-                <rect x="3" y="4" width="18" height="16" rx="2" />
-                <circle cx="9" cy="10" r="2" />
-                <path d="M21 16l-5-5-4 4-3-3-6 6" />
-              </svg>
-              Your product photo here
-            </div>
-          ))}
-        </Reveal> */}
       </div>
     </section>
   );

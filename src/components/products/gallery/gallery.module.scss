@@ -1,0 +1,90 @@
+.singleImage,
+.placeholder {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--paper-alt);
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.gallery {
+  position: relative;
+}
+
+.viewport {
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.container {
+  display: flex;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.arrowBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(251, 245, 239, 0.9);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px -6px rgba(43, 27, 34, 0.3);
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: var(--paper);
+  }
+
+  &.prev {
+    left: 14px;
+  }
+
+  &.next {
+    right: 14px;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(43, 27, 34, 0.2);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.activeDot {
+  position: absolute;
+  inset: -1.5px;
+  border-radius: 50%;
+  background: var(--wine);
+}

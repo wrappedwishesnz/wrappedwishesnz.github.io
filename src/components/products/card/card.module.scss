@@ -1,20 +1,19 @@
-@use "@/styles/mixins" as *;
-
 .card {
   display: block;
   background: var(--paper);
   border-radius: 16px 16px 16px 4px;
-  padding: 20px 20px 24px;
+  padding: 20px 20px 22px;
   text-decoration: none;
   color: var(--ink);
-  box-shadow: var(--shadow-soft);
-  transition:
-    transform 0.4s var(--ease),
-    box-shadow 0.4s var(--ease);
+  box-shadow: 0 10px 30px -15px rgba(43, 27, 34, 0.18);
+  transition: box-shadow 0.4s ease;
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow);
+    box-shadow: 0 20px 50px -20px rgba(43, 27, 34, 0.25);
+
+    .arrow {
+      transform: translate(2px, -2px);
+    }
   }
 }
 
@@ -39,8 +38,10 @@
 }
 
 .thumb {
+  position: relative;
   aspect-ratio: 4 / 3;
   border-radius: 10px;
+  overflow: hidden;
   background: linear-gradient(155deg, var(--paper) 0%, var(--paper-deep) 100%);
   border: 1.5px dashed rgba(122, 46, 74, 0.28);
   display: flex;
@@ -51,8 +52,11 @@
   margin-bottom: 16px;
 }
 
+.image {
+  object-fit: cover;
+}
+
 .title {
-  font-family: var(--font-display);
   font-size: 19px;
   font-weight: 600;
   margin: 0 0 6px;
@@ -66,10 +70,20 @@
   margin-bottom: 14px;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
 .price {
-  display: block;
-  text-align: center;
   font-size: 13px;
   font-weight: 700;
   color: var(--gold);
+}
+
+.arrow {
+  color: var(--wine);
+  transition: transform 0.3s ease;
 }
