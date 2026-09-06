@@ -67,6 +67,27 @@ export const categories = [
       },
     ],
   },
+  {
+    slug: "plaster-crafts",
+    name: "Plaster Crafts",
+    description:
+      "Paint-your-own plaster pieces, craft kits & decorative shapes.",
+    image: "/categories/plaster-crafts.jpg",
+    subcategories: [
+      {
+        slug: "paint-your-own",
+        name: "Paint Your Own",
+        description: "Plaster pieces for kids to paint and decorate.",
+        image: "/categories/paint-your-own.jpg",
+      },
+      {
+        slug: "plaster-figures",
+        name: "Plaster Figures",
+        description: "Ready-to-paint plaster shapes, animals & decorations.",
+        image: "/categories/plaster-figures.jpg",
+      },
+    ],
+  },
 ] as const satisfies Category[];
 
 export type CategorySlug = (typeof categories)[number]["slug"];

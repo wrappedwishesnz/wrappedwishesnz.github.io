@@ -2,7 +2,8 @@
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { categories } from "@/data/categories";
+import { activeCategories } from "@/data";
+
 import styles from "./filter.module.scss";
 
 export function CategoryFilter() {
@@ -13,7 +14,9 @@ export function CategoryFilter() {
   const activeCategory = searchParams.get("category") ?? "all";
   const activeSubcategory = searchParams.get("sub") ?? "all";
 
-  const activeCategoryData = categories.find(c => c.slug === activeCategory);
+  const activeCategoryData = activeCategories.find(
+    c => c.slug === activeCategory
+  );
   const subcategories = activeCategoryData?.subcategories ?? [];
 
   function updateParams(next: { category?: string; sub?: string }) {
@@ -42,7 +45,7 @@ export function CategoryFilter() {
           active={activeCategory === "all"}
           onClick={() => updateParams({ category: "all" })}
         />
-        {categories.map(category => (
+        {activeCategories.map(category => (
           <Pill
             key={category.slug}
             label={category.name}
@@ -52,7 +55,7 @@ export function CategoryFilter() {
         ))}
       </div>
 
-      {subcategories.length > 0 && (
+      {subcategories.length > 1 && (
         <div className={`${styles.row} ${styles.subRow}`}>
           <Pill
             label="All"

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Reveal from "../reveals";
-import { categories } from "@/data/categories";
+import { activeCategories } from "@/data";
 import { categoryIcons } from "./icons";
 import styles from "./offerings.module.scss";
 
@@ -33,7 +33,7 @@ export default function Offerings() {
         </Reveal>
 
         <div className={styles.grid}>
-          {categories.map((category, i) => {
+          {activeCategories.map((category, i) => {
             const Icon = categoryIcons[category.slug];
             return (
               <motion.div

@@ -102,6 +102,33 @@ export const products: Product[] = [
     sku: "WW-SB-001",
     keywords: ["shadow box", "memory box", "keepsake frame NZ"],
   },
+  {
+    slug: "paint-your-own-plaster-bulk-pack",
+    name: "Paint Your Own Plaster Bulk Pack",
+    description:
+      "A fun and creative activity for birthday parties, playgroups, classrooms and events. Choose from a selection of ready-to-paint plaster figures and order in bulk for your group.",
+    shortDescription:
+      "Ready-to-paint plaster figures for parties, groups and craft activities.",
+    price: 60,
+    currency: "NZD",
+    images: [
+      "/products/plaster-bulk-1.jpg",
+      "/products/plaster-bulk-2.jpg",
+      "/products/plaster-bulk-3.jpg",
+    ],
+    categorySlug: "plaster-crafts",
+    subcategorySlug: "paint-your-own",
+    availability: "InStock",
+    sku: "WW-PC-002",
+    keywords: [
+      "plaster painting party",
+      "bulk plaster figures",
+      "kids party activity",
+      "party craft NZ",
+      "paint your own plaster",
+      "kids craft activity",
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string) {

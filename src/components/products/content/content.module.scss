@@ -1,8 +1,9 @@
 .page {
-  padding: 160px 0 100px;
+  background: var(--paper); // top band matches the nav's scrolled state
+  padding: 160px 0 40px;
 
   @media (max-width: 720px) {
-    padding: 130px 0 70px;
+    padding: 130px 0 30px;
   }
 }
 
@@ -43,5 +44,15 @@
     width: 20px;
     height: 1px;
     background: var(--gold);
+  }
+}
+
+// new — the band that holds filter + grid, sits below .page
+.gridSection {
+  background: var(--paper-alt);
+  padding: 60px 0 100px;
+
+  @media (max-width: 720px) {
+    padding: 40px 0 70px;
   }
 }

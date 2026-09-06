@@ -96,7 +96,7 @@ export default async function ProductPage({ params }: Props) {
             <h1>{product.name}</h1>
             <p className={styles.price}>{formattedPrice}</p>
             <p className={styles.description}>{product.description}</p>
-            <Link href={`/?product=${slug}#enquiry`} className={styles.cta}>
+            <Link href={"#enquiry"} className={styles.cta}>
               Enquire about this piece
             </Link>
           </div>
