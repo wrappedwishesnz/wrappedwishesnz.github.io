@@ -42,10 +42,10 @@ export function ProductCard({ product }: ProductCardProps) {
         <h3 className={styles.title}>{product.name}</h3>
         <p className={styles.blurb}>{product.shortDescription}</p>
 
-        <div className={styles.footer}>
+        {/* <div className={styles.footer}>
           <span className={styles.price}>{formattedPrice}</span>
           <ArrowUpRight className={styles.arrow} size={16} strokeWidth={2} />
-        </div>
+        </div> */}
       </Link>
     </motion.div>
   );

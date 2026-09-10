@@ -20,18 +20,18 @@ export default function Nav() {
             <a href="#gallery">Gallery</a>
           </li> */}
           <li>
-            <a href="#offerings">What I make</a>
+            <Link href="/#offerings">What I make</Link>
           </li>
           <li>
-            <a href="#about">About</a>
+            <Link href="/#about">About</Link>
           </li>
         </ul>
 
-        <a
-          href="#enquiry"
+        <Link
+          href="/#enquiry"
           className={`${styles.btn} ${styles.btnPrimary} ${styles.btnSmall}`}>
           Enquire
-        </a>
+        </Link>
       </div>
     </header>
   );

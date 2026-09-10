@@ -6,6 +6,7 @@ import { ProductList } from "@/components/products/list";
 import { products } from "@/data/products";
 import { getCategoryBySlug, getSubcategoryBySlug } from "@/data/categories";
 import styles from "./content.module.scss";
+import Enquiry from "@/components/enquiry";
 
 export function FallbackContent() {
   return (
@@ -59,6 +60,8 @@ export function ProductsContent() {
           <ProductList products={filtered} />
         </div>
       </section>
+
+      <Enquiry />
     </>
   );
 }

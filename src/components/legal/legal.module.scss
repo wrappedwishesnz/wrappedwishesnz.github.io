@@ -1,0 +1,76 @@
+@use "@/styles/mixins" as *;
+
+.page {
+  padding: 110px 0;
+  background: var(--paper-alt);
+
+  @include mobile {
+    padding: 76px 0;
+  }
+}
+
+.inner {
+  @include wrap;
+  max-width: 860px;
+}
+
+.heading {
+  margin-bottom: 56px;
+
+  h1 {
+    font-size: clamp(32px, 4vw, 46px);
+    margin-bottom: 18px;
+  }
+
+  p {
+    color: var(--ink-soft);
+    line-height: 1.75;
+    max-width: 650px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.content {
+  display: grid;
+  gap: 20px;
+}
+
+.section {
+  padding: 30px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+
+  h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
+  }
+
+  p,
+  li {
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+
+  p {
+    margin: 0 0 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 12px 0 0;
+  }
+
+  @include mobile {
+    padding: 22px;
+  }
+}

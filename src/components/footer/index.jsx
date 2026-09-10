@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./footer.module.scss";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -12,6 +13,13 @@ export default function Footer() {
               WrappedWishes
             </a>
             <p className={styles.tagline}>Gifts as unique as your wishes.</p>
+            <div className={styles.links}>
+              <Link href="/faq">FAQ</Link>
+              <Link href="/contact">Contact</Link>
+              <Link href="/shipping-returns">Shipping & Returns</Link>
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms & Conditions</Link>
+            </div>
           </div>
 
           <div className={styles.social}>

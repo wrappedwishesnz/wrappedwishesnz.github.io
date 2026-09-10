@@ -30,6 +30,7 @@ export const products: Product[] = [
     images: [
       "/products/birthday-party-bag-1.jpg",
       "/products/birthday-party-bag-2.jpg",
+      "/products/birthday-party-bag-3.jpg",
     ],
     categorySlug: "party-favours",
     availability: "InStock",
@@ -51,7 +52,11 @@ export const products: Product[] = [
       "Custom cake toppers for birthdays and special celebrations.",
     price: 5,
     currency: "NZD",
-    images: ["/products/cake-topper-1.jpg"],
+    images: [
+      "/products/cake-topper-1.jpg",
+      "/products/cake-topper-2.jpg",
+      "/products/cake-topper-3.jpg",
+    ],
     categorySlug: "cake-toppers",
     availability: "InStock",
     sku: "WW-CT-001",
@@ -82,26 +87,26 @@ export const products: Product[] = [
       "custom gifts NZ",
     ],
   },
-  {
-    slug: "memory-shadow-box",
-    name: "Memory Shadow Box",
-    description:
-      "A framed keepsake for photos, tickets & small treasures — arranged by hand behind glass. Tell us what you'd like included and we'll help plan the layout.",
-    shortDescription:
-      "A framed keepsake for photos, tickets & small treasures.",
-    price: 85,
-    currency: "NZD",
-    images: [
-      "/products/shadow-box-1.jpg",
-      "/products/shadow-box-2.jpg",
-      "/products/shadow-box-3.jpg",
-    ],
-    categorySlug: "keepsakes",
-    subcategorySlug: "shadow-boxes",
-    availability: "InStock",
-    sku: "WW-SB-001",
-    keywords: ["shadow box", "memory box", "keepsake frame NZ"],
-  },
+  // {
+  //   slug: "memory-shadow-box",
+  //   name: "Memory Shadow Box",
+  //   description:
+  //     "A framed keepsake for photos, tickets & small treasures — arranged by hand behind glass. Tell us what you'd like included and we'll help plan the layout.",
+  //   shortDescription:
+  //     "A framed keepsake for photos, tickets & small treasures.",
+  //   price: 85,
+  //   currency: "NZD",
+  //   images: [
+  //     "/products/shadow-box-1.jpg",
+  //     "/products/shadow-box-2.jpg",
+  //     "/products/shadow-box-3.jpg",
+  //   ],
+  //   categorySlug: "keepsakes",
+  //   subcategorySlug: "shadow-boxes",
+  //   availability: "InStock",
+  //   sku: "WW-SB-001",
+  //   keywords: ["shadow box", "memory box", "keepsake frame NZ"],
+  // },
   {
     slug: "paint-your-own-plaster-bulk-pack",
     name: "Paint Your Own Plaster Bulk Pack",
@@ -112,9 +117,9 @@ export const products: Product[] = [
     price: 60,
     currency: "NZD",
     images: [
-      "/products/plaster-bulk-1.jpg",
-      "/products/plaster-bulk-2.jpg",
-      "/products/plaster-bulk-3.jpg",
+      "/products/plaster-bulk-1.png",
+      "/products/plaster-bulk-2.png",
+      "/products/plaster-bulk-3.png",
     ],
     categorySlug: "plaster-crafts",
     subcategorySlug: "paint-your-own",

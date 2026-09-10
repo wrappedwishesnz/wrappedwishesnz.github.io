@@ -1,4 +1,4 @@
-@use '../../styles/mixins' as *;
+@use "../../styles/mixins" as *;
 
 .footer {
   background: var(--ink);
@@ -60,7 +60,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color 0.3s var(--ease), background 0.3s var(--ease), transform 0.3s var(--ease);
+    transition:
+      border-color 0.3s var(--ease),
+      background 0.3s var(--ease),
+      transform 0.3s var(--ease);
 
     &:hover {
       background: rgba(251, 245, 239, 0.1);
@@ -73,6 +76,14 @@
     width: 18px;
     height: 18px;
   }
+}
+
+.links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .bottom {

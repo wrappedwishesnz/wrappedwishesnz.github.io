@@ -1,7 +1,6 @@
 "use client";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-import Enquiry from "@/components/enquiry";
 
 import styles from "./layout.module.scss";
 
@@ -13,10 +12,7 @@ export const Layout = ({
   return (
     <div className={`${styles.wrapper}`}>
       <Nav />
-      <main id="top">
-        {children}
-        <Enquiry />
-      </main>
+      <main id="top">{children}</main>
       <Footer />
     </div>
   );

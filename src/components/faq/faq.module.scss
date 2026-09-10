@@ -1,0 +1,69 @@
+@use "@/styles/mixins" as *;
+
+.page {
+  padding: 160px 40px;
+
+  @media (max-width: 720px) {
+    padding: 130px 0 30px;
+  }
+  background: var(--paper);
+
+  @include mobile {
+    padding: 76px 0;
+  }
+}
+
+.inner {
+  @include wrap;
+  max-width: 900px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 56px;
+
+  h1 {
+    font-size: clamp(32px, 4vw, 46px);
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.faqs {
+  display: grid;
+  gap: 16px;
+}
+
+.item {
+  padding: 26px 30px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  @include mobile {
+    padding: 22px;
+  }
+}

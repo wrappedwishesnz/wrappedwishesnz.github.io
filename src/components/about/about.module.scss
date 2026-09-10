@@ -35,8 +35,10 @@
     margin: 0 auto;
   }
 
-  svg {
-    width: 56%;
+  .image {
+    width: 80%;
+    border-radius: var(--radius);
+    height: "auto";
   }
 }
 

@@ -17,9 +17,9 @@ export default function Hero() {
             for every <em>occasion.</em>
           </h1>
           <p>
-            Personalised gifts, shadow boxes, party bags, and curated gift boxes
-            — all handcrafted and made to order. Posted NZ-wide, or delivered
-            locally.
+            Personalised gifts, return gifts, party bags, cake toppers, gift
+            hampers, shadow boxes, and curated gift boxes — all handcrafted and
+            made to order. Posted NZ-wide, or delivered locally.
           </p>
           <div className={styles.ctas}>
             <a href="#enquiry" className={`${styles.btn} ${styles.btnPrimary}`}>

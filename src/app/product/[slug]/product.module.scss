@@ -1,9 +1,9 @@
 .detail {
-  background: var(--paper-alt);
-  padding: 160px 0 100px;
+  background: var(--paper); // top band, matches nav
+  padding: 160px 0 60px;
 
   @media (max-width: 720px) {
-    padding: 130px 0 70px;
+    padding: 130px 0 40px;
   }
 }
 
@@ -80,4 +80,14 @@
   color: var(--paper);
   font-weight: 700;
   font-size: 14.5px;
+}
+
+// new — separate band for related products
+.relatedSection {
+  background: var(--paper-alt);
+  padding: 60px 0 100px;
+
+  @media (max-width: 720px) {
+    padding: 40px 0 70px;
+  }
 }

@@ -122,3 +122,14 @@
   margin: 12px 0 14px;
   color: var(--wine);
 }
+
+.cta {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--wine);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 14.5px;
+}

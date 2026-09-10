@@ -19,7 +19,7 @@ const initialForm = {
   message: "",
 };
 
-export default function Enquiry() {
+export default function Enquiry({ isContactForm = false }) {
   const [form, setForm] = useState(initialForm);
 
   const [loading, setLoading] = useState(false);
@@ -67,6 +67,78 @@ export default function Enquiry() {
     setLoading(false);
   };
 
+  const formContent = (
+    <form onSubmit={handleSubmit}>
+      <div className={styles.formGrid}>
+        <div className={styles.field}>
+          <label htmlFor="name">Your name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Jane Smith"
+            value={form.name}
+            onChange={handleChange("name")}
+            required
+          />
+        </div>
+
+        <div className={styles.field}>
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="jane@email.com"
+            value={form.email}
+            onChange={handleChange("email")}
+            required
+          />
+        </div>
+        {!isContactForm && (
+          <div className={`${styles.field} ${styles.full}`}>
+            <label htmlFor="occasion">What&apos;s it for</label>
+            <select
+              id="product"
+              value={form.product}
+              onChange={handleChange("product")}>
+              {PRODUCTS.map(product => (
+                <option key={product} value={product}>
+                  {product}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        <div className={`${styles.field} ${styles.full}`}>
+          <label htmlFor="details">Tell us more</label>
+          <textarea
+            id="details"
+            rows={4}
+            placeholder="Occasion, colours, names, quantities, timeframe..."
+            value={form.message}
+            onChange={handleChange("message")}
+          />
+        </div>
+      </div>
+
+      <button type="submit" disabled={loading} className={styles.submit}>
+        {loading ? "Sending..." : "Submit Enquiry"}
+      </button>
+
+      {status === "success" && (
+        <p className={styles.success}>Message sent successfully ✔</p>
+      )}
+
+      {status === "error" && (
+        <p className={styles.error}>
+          Please fill required fields or try again ❌
+        </p>
+      )}
+    </form>
+  );
+
+  if (isContactForm) return formContent;
+
   return (
     <section className={styles.enquiry} id="enquiry">
       <div className={styles.wrap}>
@@ -77,73 +149,7 @@ export default function Enquiry() {
             Tell us about your gift idea and we&apos;ll come back with a
             personalised quote tailored to your requirements.
           </p>
-
-          <form onSubmit={handleSubmit}>
-            <div className={styles.formGrid}>
-              <div className={styles.field}>
-                <label htmlFor="name">Your name</label>
-                <input
-                  id="name"
-                  type="text"
-                  placeholder="Jane Smith"
-                  value={form.name}
-                  onChange={handleChange("name")}
-                  required
-                />
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="email">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="jane@email.com"
-                  value={form.email}
-                  onChange={handleChange("email")}
-                  required
-                />
-              </div>
-
-              <div className={`${styles.field} ${styles.full}`}>
-                <label htmlFor="occasion">What&apos;s it for</label>
-                <select
-                  id="product"
-                  value={form.product}
-                  onChange={handleChange("product")}>
-                  {PRODUCTS.map(product => (
-                    <option key={product} value={product}>
-                      {product}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className={`${styles.field} ${styles.full}`}>
-                <label htmlFor="details">Tell us more</label>
-                <textarea
-                  id="details"
-                  rows={4}
-                  placeholder="Occasion, colours, names, quantities, timeframe..."
-                  value={form.message}
-                  onChange={handleChange("message")}
-                />
-              </div>
-            </div>
-
-            <button type="submit" disabled={loading} className={styles.submit}>
-              {loading ? "Sending..." : "Submit Enquiry"}
-            </button>
-
-            {status === "success" && (
-              <p className={styles.success}>Message sent successfully ✔</p>
-            )}
-
-            {status === "error" && (
-              <p className={styles.error}>
-                Please fill required fields or try again ❌
-              </p>
-            )}
-          </form>
+          {formContent}
         </Reveal>
       </div>
     </section>

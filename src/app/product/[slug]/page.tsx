@@ -5,6 +5,7 @@ import { getProductBySlug, getCategoryLabel, products } from "@/data/products";
 import { ProductGallery } from "@/components/products/gallery";
 import { RelatedProducts } from "@/components/products/related";
 import styles from "./product.module.scss";
+import Enquiry from "@/components/enquiry";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -65,7 +66,7 @@ export default async function ProductPage({ params }: Props) {
       "@type": "Offer",
       url: productUrl,
       priceCurrency: product.currency,
-      price: product.price.toFixed(2),
+      // price: product.price.toFixed(2),
       availability: `https://schema.org/${product.availability}`,
       itemCondition: "https://schema.org/NewCondition",
     },
@@ -77,33 +78,43 @@ export default async function ProductPage({ params }: Props) {
   }).format(product.price);
 
   return (
-    <section className={styles.detail}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
-      />
+    <>
+      <section className={styles.detail}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        />
 
-      <div className={styles.wrap}>
-        <Link href="/products" className={styles.back}>
-          ← Back to shop
-        </Link>
+        <div className={styles.wrap}>
+          <Link href="/products" className={styles.back}>
+            ← Back to shop
+          </Link>
 
-        <div className={styles.grid}>
-          <ProductGallery images={product.images} alt={product.name} />
+          <div className={styles.grid}>
+            <ProductGallery images={product.images} alt={product.name} />
 
-          <div className={styles.info}>
-            <span className={styles.category}>{getCategoryLabel(product)}</span>
-            <h1>{product.name}</h1>
-            <p className={styles.price}>{formattedPrice}</p>
-            <p className={styles.description}>{product.description}</p>
-            <Link href={"#enquiry"} className={styles.cta}>
-              Enquire about this piece
-            </Link>
+            <div className={styles.info}>
+              <span className={styles.category}>
+                {getCategoryLabel(product)}
+              </span>
+              <h1>{product.name}</h1>
+              {/* <p className={styles.price}>Starts from {formattedPrice}</p> */}
+              <p className={styles.description}>{product.description}</p>
+              <Link href={"#enquiry"} className={styles.cta}>
+                Enquire about this piece
+              </Link>
+            </div>
           </div>
         </div>
+      </section>
 
-        <RelatedProducts product={product} />
-      </div>
-    </section>
+      <section className={styles.relatedSection}>
+        <div className={styles.wrap}>
+          <RelatedProducts product={product} />
+        </div>
+      </section>
+
+      <Enquiry />
+    </>
   );
 }

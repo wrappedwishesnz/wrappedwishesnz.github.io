@@ -4,6 +4,7 @@ import HowItWorks from "@/components/howItWorks";
 import About from "@/components/about";
 
 import type { Metadata } from "next";
+import Enquiry from "@/components/enquiry";
 
 export const metadata: Metadata = {
   title: "Personalised Gifts & Party Supplies NZ",
@@ -20,6 +21,7 @@ export default function Home() {
       <Offerings />
       <HowItWorks />
       <About />
+      <Enquiry />
     </>
   );
 }
