@@ -1,4 +1,13 @@
 import LegalPage from "@/components/legal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shipping & Returns",
+  description:
+    "Learn about processing times, NZ-wide shipping, personalised order changes, damaged items and returns at WrappedWishes.",
+  alternates: { canonical: "/shipping-returns" },
+  openGraph: { url: "/shipping-returns" },
+};
 
 export default function ShippingReturnsPage() {
   return (

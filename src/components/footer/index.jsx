@@ -9,7 +9,12 @@ export default function Footer() {
         <div className={styles.top}>
           <div>
             <a href="#top" className={styles.logo}>
-              <Image alt="logo" src={"/logo.svg"} width={30} height={30} />
+              <Image
+                alt="WrappedWishes"
+                src={"/logo.svg"}
+                width={30}
+                height={30}
+              />
               WrappedWishes
             </a>
             <p className={styles.tagline}>Gifts as unique as your wishes.</p>

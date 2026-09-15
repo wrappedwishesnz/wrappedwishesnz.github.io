@@ -7,11 +7,17 @@ import type { Metadata } from "next";
 import Enquiry from "@/components/enquiry";
 
 export const metadata: Metadata = {
-  title: "Personalised Gifts & Party Supplies NZ",
+  title: { absolute: "Personalised Gifts & Party Supplies NZ | WrappedWishes" },
   description:
-    "Shop personalised birthday party bags, cake toppers, gift packs and custom party decorations from WrappedWishes.",
+    "Shop handmade personalised gifts, birthday party bags, cake toppers and custom party supplies from our Dunedin studio, delivered throughout New Zealand.",
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    title: "Personalised Gifts & Party Supplies NZ | WrappedWishes",
+    description:
+      "Handmade personalised gifts, party bags, cake toppers and custom party supplies, made in Dunedin and delivered NZ-wide.",
+    url: "/",
   },
 };
 export default function Home() {

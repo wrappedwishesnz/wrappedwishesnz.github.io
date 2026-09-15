@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { getCategoryLabel, type Product } from "@/data/products";
 import styles from "./card.module.scss";
 
@@ -12,11 +11,6 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
-  const formattedPrice = new Intl.NumberFormat("en-NZ", {
-    style: "currency",
-    currency: product.currency,
-  }).format(product.price);
-
   return (
     <motion.div
       whileHover={{ y: -6 }}

@@ -9,8 +9,8 @@ export default function About() {
         <Reveal as="div" className={styles.art} aria-hidden="true">
           <Image
             className={styles.image}
-            src={"about.png"}
-            alt="about image"
+            src={"/about.png"}
+            alt="WrappedWishes family-run personalised gift studio in Dunedin"
             width={1600}
             height={900}
           />

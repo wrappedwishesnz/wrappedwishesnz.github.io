@@ -6,10 +6,16 @@ import {
 } from "@/components/products/content";
 
 export const metadata: Metadata = {
-  title: "Shop | Wrapped Wishes",
+  title: "Personalised Gifts & Party Supplies",
   description:
-    "Browse personalised gifts, party favours, cake toppers, gift hampers & keepsakes.",
-  alternates: { canonical: "https://www.wrappedwishes.nz/products" },
+    "Browse personalised party bags, custom cake toppers, gift packs and paint-your-own plaster kits, handmade in Dunedin with NZ-wide delivery.",
+  alternates: { canonical: "/products" },
+  openGraph: {
+    title: "Personalised Gifts & Party Supplies NZ",
+    description:
+      "Browse handmade personalised gifts and party supplies from WrappedWishes in Dunedin.",
+    url: "/products",
+  },
 };
 
 export default function ProductsPage() {

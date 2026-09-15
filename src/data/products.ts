@@ -25,7 +25,7 @@ export const products: Product[] = [
       "Personalised birthday party bags designed for children's celebrations. Choose your preferred theme, colours, name and age to create a unique party favour for your guests.",
     shortDescription:
       "Personalised party bags for children's birthday celebrations.",
-    price: 8,
+    price: 12,
     currency: "NZD",
     images: [
       "/products/birthday-party-bag-1.jpg",
@@ -50,7 +50,7 @@ export const products: Product[] = [
       "Custom cake toppers designed to match your birthday celebration. Choose your preferred colours, name, age and theme.",
     shortDescription:
       "Custom cake toppers for birthdays and special celebrations.",
-    price: 5,
+    price: 25,
     currency: "NZD",
     images: [
       "/products/cake-topper-1.jpg",
@@ -114,7 +114,7 @@ export const products: Product[] = [
       "A fun and creative activity for birthday parties, playgroups, classrooms and events. Choose from a selection of ready-to-paint plaster figures and order in bulk for your group.",
     shortDescription:
       "Ready-to-paint plaster figures for parties, groups and craft activities.",
-    price: 60,
+    price: 30,
     currency: "NZD",
     images: [
       "/products/plaster-bulk-1.png",

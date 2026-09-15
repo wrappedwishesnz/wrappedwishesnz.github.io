@@ -6,8 +6,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
 
-const GA_ID = "G-NQVJH0XF31";
-
 const nunito = Nunito_Sans({
   subsets: ["latin", "latin-ext"],
   variable: "--font-nunito",
@@ -19,34 +17,21 @@ const fraunces = Fraunces({
   variable: "--font-fraunces",
   weight: ["400", "500", "600", "700"],
 });
-const siteUrl = "https://www.wrappedwishes.nz/";
+const siteUrl = "https://www.wrappedwishes.nz";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: "WrappedWishes | Personalised Gifts & Party Supplies NZ",
-    template: "%s | WrappedWishes",
+    default: "Personalised Gifts & Party Supplies NZ | WrappedWishes",
+    template: "%s | WrappedWishes NZ",
   },
 
   description:
     "Personalised gifts, birthday party bags, cake toppers and party decorations made with love in New Zealand.",
 
-  keywords: [
-    "personalised gifts NZ",
-    "birthday party bags NZ",
-    "party favours NZ",
-    "cake toppers NZ",
-    "personalised party supplies",
-    "custom gifts NZ",
-  ],
-
-  alternates: {
-    canonical: "/",
-  },
-
   openGraph: {
-    title: "WrappedWishes | Personalised Gifts & Party Supplies NZ",
+    title: "Personalised Gifts & Party Supplies NZ | WrappedWishes",
     description:
       "Personalised gifts, birthday party bags, cake toppers and party decorations made with love in New Zealand.",
     url: siteUrl,
@@ -55,7 +40,7 @@ export const metadata: Metadata = {
     locale: "en_NZ",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/about.png",
         width: 1200,
         height: 630,
         alt: "WrappedWishes personalised gifts and party supplies",
@@ -65,16 +50,24 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "WrappedWishes | Personalised Gifts & Party Supplies NZ",
+    title: "Personalised Gifts & Party Supplies NZ | WrappedWishes",
     description:
       "Personalised gifts, birthday party bags, cake toppers and party decorations made with love in New Zealand.",
-    images: ["/og-image.jpg"],
+    images: ["/about.png"],
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  category: "Personalised gifts and party supplies",
 };
 
 export default function RootLayout({
@@ -82,11 +75,49 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const businessJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "OnlineStore",
+        "@id": `${siteUrl}/#business`,
+        name: "WrappedWishes",
+        url: siteUrl,
+        logo: `${siteUrl}/logo.svg`,
+        image: `${siteUrl}/about.png`,
+        description:
+          "A family-run Dunedin studio creating personalised gifts, party bags, cake toppers and party supplies for delivery across New Zealand.",
+        email: "wrappedwishesnz@gmail.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Dunedin",
+          addressCountry: "NZ",
+        },
+        areaServed: { "@type": "Country", name: "New Zealand" },
+        sameAs: ["https://www.facebook.com/WrappedWishesNZ/"],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "WrappedWishes",
+        inLanguage: "en-NZ",
+        publisher: { "@id": `${siteUrl}/#business` },
+      },
+    ],
+  };
+
   return (
     <html
-      lang="en"
+      lang="en-NZ"
       className={`${nunito.variable} ${fraunces.variable} light h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <AppContextProvider>
           <Layout>{children}</Layout>
         </AppContextProvider>

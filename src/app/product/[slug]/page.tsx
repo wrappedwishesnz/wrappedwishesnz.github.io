@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: product.name,
-    description: product.shortDescription,
+    description: `${product.shortDescription} Handmade to order in Dunedin and available for delivery throughout New Zealand.`,
 
     keywords: product.keywords,
 
@@ -35,11 +35,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
 
     openGraph: {
-      title: product.name,
+      title: `${product.name} NZ`,
       description: product.description,
       url: `/product/${product.slug}`,
       type: "website",
       images: product.images.map(image => ({ url: image, alt: product.name })),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} NZ`,
+      description: product.shortDescription,
+      images: [product.images[0]],
     },
   };
 }
@@ -66,23 +72,52 @@ export default async function ProductPage({ params }: Props) {
       "@type": "Offer",
       url: productUrl,
       priceCurrency: product.currency,
-      // price: product.price.toFixed(2),
+      price: product.price.toFixed(2),
       availability: `https://schema.org/${product.availability}`,
       itemCondition: "https://schema.org/NewCondition",
+      seller: { "@id": `${siteUrl}/#business` },
     },
   };
 
-  const formattedPrice = new Intl.NumberFormat("en-NZ", {
-    style: "currency",
-    currency: product.currency,
-  }).format(product.price);
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${siteUrl}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: productUrl,
+      },
+    ],
+  };
 
   return (
     <>
       <section className={styles.detail}>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
 
         <div className={styles.wrap}>

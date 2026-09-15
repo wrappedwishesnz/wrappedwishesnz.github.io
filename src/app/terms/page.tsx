@@ -1,4 +1,12 @@
 import LegalPage from "@/components/legal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions",
+  description:
+    "Terms for made-to-order and personalised products purchased from WrappedWishes in New Zealand.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsPage() {
   return (

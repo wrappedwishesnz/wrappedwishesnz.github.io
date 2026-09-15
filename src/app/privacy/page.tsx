@@ -1,4 +1,12 @@
 import LegalPage from "@/components/legal";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read how WrappedWishes collects, uses and protects information provided through our website and custom order enquiries.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPage() {
   return (
