@@ -1,7 +1,53 @@
 .related {
   h2 {
     font-size: clamp(24px, 3vw, 32px);
-    margin-bottom: 32px;
+    margin-bottom: 12px;
     text-align: center;
+  }
+}
+
+.intro {
+  max-width: 560px;
+  margin: 0 auto 32px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.customOrder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 28px;
+  padding: 28px 32px;
+  border: 1px solid rgba(43, 27, 34, 0.08);
+  border-radius: 16px;
+  background: var(--paper);
+
+  h3 {
+    margin-bottom: 7px;
+    font-size: 20px;
+  }
+
+  p {
+    max-width: 620px;
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+
+  a {
+    flex-shrink: 0;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: var(--wine);
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 720px) {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
   }
 }

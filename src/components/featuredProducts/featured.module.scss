@@ -1,0 +1,52 @@
+@use "@/styles/mixins" as *;
+
+.section {
+  padding: 100px 0;
+  background: var(--paper-alt);
+
+  @include mobile {
+    padding: 72px 0;
+  }
+}
+
+.wrap {
+  @include wrap;
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 46px;
+
+  h2 {
+    margin: 14px 0 12px;
+    font-size: clamp(30px, 4vw, 44px);
+  }
+
+  p {
+    max-width: 620px;
+    color: var(--ink-soft);
+    font-size: 16px;
+  }
+
+  @include mobile {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 34px;
+  }
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.shopLink {
+  flex-shrink: 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--gold);
+  color: var(--wine);
+  font-size: 14px;
+  font-weight: 700;
+}

@@ -16,14 +16,17 @@ export default function Nav() {
         </Link>
 
         <ul className={styles.links}>
-          {/* <li>
-            <a href="#gallery">Gallery</a>
-          </li> */}
           <li>
-            <Link href="/#offerings">What I make</Link>
+            <Link href="/products">Shop</Link>
+          </li>
+          <li>
+            <Link href="/#how">How it works</Link>
           </li>
           <li>
             <Link href="/#about">About</Link>
+          </li>
+          <li>
+            <Link href="/faq">FAQ</Link>
           </li>
         </ul>
 

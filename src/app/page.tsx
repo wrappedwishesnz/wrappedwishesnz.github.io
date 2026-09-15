@@ -5,6 +5,7 @@ import About from "@/components/about";
 
 import type { Metadata } from "next";
 import Enquiry from "@/components/enquiry";
+import FeaturedProducts from "@/components/featuredProducts";
 
 export const metadata: Metadata = {
   title: { absolute: "Personalised Gifts & Party Supplies NZ | WrappedWishes" },
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <FeaturedProducts />
       <Offerings />
       <HowItWorks />
       <About />

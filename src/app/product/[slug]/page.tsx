@@ -68,6 +68,11 @@ export default async function ProductPage({ params }: Props) {
   const productUrl = `${siteUrl}/product/${slug}`;
   const parentProduct = getParentProduct(product);
   const images = getProductImages(product);
+  const formattedPrice = new Intl.NumberFormat("en-NZ", {
+    style: "currency",
+    currency: product.currency,
+    maximumFractionDigits: 0,
+  }).format(product.price);
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -166,12 +171,63 @@ export default async function ProductPage({ params }: Props) {
                 {getCategoryLabel(product)}
               </span>
               <h1>{product.name}</h1>
-              {/* <p className={styles.price}>Starts from {formattedPrice}</p> */}
+              <div className={styles.purchaseMeta}>
+                <p className={styles.price}>
+                  {product.subProducts?.length ? "From " : ""}
+                  {formattedPrice} NZD
+                </p>
+                <span className={styles.madeToOrder}>Made to order</span>
+              </div>
               <p className={styles.description}>{product.description}</p>
               <Link href={"#enquiry"} className={styles.cta}>
                 Enquire about this piece
               </Link>
+              <p className={styles.enquiryHint}>
+                Tell us the occasion, wording, colours, quantity and date. We’ll
+                confirm the design, final price and turnaround time with you.
+              </p>
+
+              <ul className={styles.trustList} aria-label="Product benefits">
+                <li>Handmade in Dunedin</li>
+                <li>Personalised to order</li>
+                <li>NZ-wide delivery</li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.orderDetails} aria-labelledby="order-heading">
+        <div className={styles.wrap}>
+          <div className={styles.orderHeading}>
+            <span className={styles.orderEyebrow}>Your custom order</span>
+            <h2 id="order-heading">Made for your celebration.</h2>
+          </div>
+          <div className={styles.detailCards}>
+            <article>
+              <span>01</span>
+              <h3>Make it yours</h3>
+              <p>
+                Share the occasion and the names, wording, colours or theme you
+                would like us to work with.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Confirm the details</h3>
+              <p>
+                We’ll talk through what is possible and confirm the design,
+                price and current turnaround time before proceeding.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Made and delivered</h3>
+              <p>
+                Your order is carefully handmade in our Dunedin studio and can
+                be delivered throughout New Zealand.
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -182,7 +238,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      <Enquiry />
+      <Enquiry productName={product.name} />
     </>
   );
 }

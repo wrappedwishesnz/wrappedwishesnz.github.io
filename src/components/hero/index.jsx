@@ -12,22 +12,22 @@ export default function Hero() {
         <div className={styles.copy}>
           <span className={styles.eyebrow}>Handmade in New Zealand</span>
           <h1>
-            Personalised gifts
-            <br />
-            for every <em>occasion.</em>
+            Personalised gifts and party details, <em>handmade in Dunedin.</em>
           </h1>
           <p>
-            Personalised gifts, return gifts, party bags, cake toppers, gift
-            hampers, shadow boxes, and curated gift boxes — all handcrafted and
-            made to order. Posted NZ-wide, or delivered locally.
+            From custom cake toppers and party bags to thoughtful gift packs,
+            every WrappedWishes creation is made to order and delivered across
+            New Zealand.
           </p>
           <div className={styles.ctas}>
-            <a href="#enquiry" className={`${styles.btn} ${styles.btnPrimary}`}>
-              Start your order
+            <a
+              href="/products"
+              className={`${styles.btn} ${styles.btnPrimary}`}>
+              Shop personalised products
             </a>
-            {/* <a href="#gallery" className={`${styles.btn} ${styles.btnGhost}`}>
-              View gallery
-            </a> */}
+            <a href="#enquiry" className={`${styles.btn} ${styles.btnGhost}`}>
+              Request a custom design
+            </a>
           </div>
         </div>
 

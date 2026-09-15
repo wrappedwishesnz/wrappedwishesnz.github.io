@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import {
   getCategoryLabel,
   getProductImages,
@@ -16,6 +17,12 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const coverImage = getProductImages(product)[0];
+  const formattedPrice = new Intl.NumberFormat("en-NZ", {
+    style: "currency",
+    currency: product.currency,
+    maximumFractionDigits: 0,
+  }).format(product.price);
+  const designCount = product.subProducts?.length ?? 0;
 
   return (
     <motion.div
@@ -26,6 +33,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <span className={styles.category}>{getCategoryLabel(product)}</span>
 
         <div className={styles.thumb}>
+          <span className={styles.badge}>Made to order</span>
           {coverImage ? (
             <Image
               src={coverImage}
@@ -42,10 +50,22 @@ export function ProductCard({ product }: ProductCardProps) {
         <h3 className={styles.title}>{product.name}</h3>
         <p className={styles.blurb}>{product.shortDescription}</p>
 
-        {/* <div className={styles.footer}>
-          <span className={styles.price}>{formattedPrice}</span>
+        <div className={styles.meta}>
+          <span className={styles.price}>
+            {designCount ? "From " : ""}
+            {formattedPrice} NZD
+          </span>
+          {designCount > 0 && (
+            <span className={styles.designs}>
+              {designCount} designs available
+            </span>
+          )}
+        </div>
+
+        <div className={styles.footer}>
+          <span>View {designCount ? "designs" : "details"}</span>
           <ArrowUpRight className={styles.arrow} size={16} strokeWidth={2} />
-        </div> */}
+        </div>
       </Link>
     </motion.div>
   );

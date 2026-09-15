@@ -31,17 +31,17 @@ export const steps = [
   {
     num: 1,
     title: "Enquire",
-    desc: "Tell me what you're after via the form or social media.",
+    desc: "Share the occasion, product, colours, wording, quantity and date.",
   },
   {
     num: 2,
     title: "Customise",
-    desc: "We chat through ideas, colours, names, and details.",
+    desc: "We confirm the design, final price and current turnaround time.",
   },
   {
     num: 3,
     title: "Receive",
-    desc: "Your gift is made with love and sent to your door.",
+    desc: "Your order is handmade in Dunedin and delivered with care.",
   },
 ];
 

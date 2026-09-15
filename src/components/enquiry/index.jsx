@@ -19,8 +19,18 @@ const initialForm = {
   message: "",
 };
 
-export default function Enquiry({ isContactForm = false }) {
-  const [form, setForm] = useState(initialForm);
+/**
+ * @param {{ isContactForm?: boolean; productName?: string }} props
+ */
+export default function Enquiry({ isContactForm = false, productName }) {
+  const availableProducts = productName
+    ? [productName, ...PRODUCTS.filter(product => product !== productName)]
+    : PRODUCTS;
+  const createInitialForm = () => ({
+    ...initialForm,
+    product: productName ?? PRODUCTS[0],
+  });
+  const [form, setForm] = useState(createInitialForm);
 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null); // success | error
@@ -58,7 +68,7 @@ export default function Enquiry({ isContactForm = false }) {
       );
 
       setStatus("success");
-      setForm(initialForm);
+      setForm(createInitialForm());
     } catch (err) {
       console.error(err);
       setStatus("error");
@@ -95,12 +105,12 @@ export default function Enquiry({ isContactForm = false }) {
         </div>
         {!isContactForm && (
           <div className={`${styles.field} ${styles.full}`}>
-            <label htmlFor="occasion">What&apos;s it for</label>
+            <label htmlFor="product">What&apos;s it for</label>
             <select
               id="product"
               value={form.product}
               onChange={handleChange("product")}>
-              {PRODUCTS.map(product => (
+              {availableProducts.map(product => (
                 <option key={product} value={product}>
                   {product}
                 </option>
@@ -146,8 +156,9 @@ export default function Enquiry({ isContactForm = false }) {
           <span className={styles.eyebrow}>Order enquiry</span>
           <h2>Let&apos;s create something.</h2>
           <p>
-            Tell us about your gift idea and we&apos;ll come back with a
-            personalised quote tailored to your requirements.
+            Share the occasion, names, colours, quantity and date you need it.
+            We&apos;ll confirm the design, price and current turnaround time
+            with you.
           </p>
           {formContent}
         </Reveal>
