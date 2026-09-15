@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/data/products";
+import { allProducts, getProductImages } from "@/data/products";
 
 const siteUrl = "https://www.wrappedwishes.nz";
 
@@ -20,11 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/terms`, changeFrequency: "yearly", priority: 0.2 },
   ];
 
-  const productPages: MetadataRoute.Sitemap = products.map(product => ({
+  const productPages: MetadataRoute.Sitemap = allProducts.map(product => ({
     url: `${siteUrl}/product/${product.slug}`,
     changeFrequency: "monthly",
     priority: 0.8,
-    images: product.images.map(image => `${siteUrl}${image}`),
+    images: getProductImages(product).map(image => `${siteUrl}${image}`),
   }));
 
   return [...pages, ...productPages];

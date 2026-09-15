@@ -1,7 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getProductBySlug, getCategoryLabel, products } from "@/data/products";
+import {
+  allProducts,
+  getCategoryLabel,
+  getParentProduct,
+  getProductBySlug,
+  getProductImages,
+} from "@/data/products";
 import { ProductGallery } from "@/components/products/gallery";
 import { RelatedProducts } from "@/components/products/related";
 import styles from "./product.module.scss";
@@ -12,7 +18,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return products.map(p => ({ slug: p.slug }));
+  return allProducts.map(product => ({ slug: product.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -23,6 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!product) {
     return {};
   }
+
+  const images = getProductImages(product);
 
   return {
     title: product.name,
@@ -39,13 +47,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: product.description,
       url: `/product/${product.slug}`,
       type: "website",
-      images: product.images.map(image => ({ url: image, alt: product.name })),
+      images: images.map(image => ({ url: image, alt: product.name })),
     },
     twitter: {
       card: "summary_large_image",
       title: `${product.name} NZ`,
       description: product.shortDescription,
-      images: [product.images[0]],
+      images: [images[0]],
     },
   };
 }
@@ -58,13 +66,15 @@ export default async function ProductPage({ params }: Props) {
 
   const siteUrl = "https://www.wrappedwishes.nz";
   const productUrl = `${siteUrl}/product/${slug}`;
+  const parentProduct = getParentProduct(product);
+  const images = getProductImages(product);
 
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: product.images.map(img => `${siteUrl}${img}`),
+    image: images.map(img => `${siteUrl}${img}`),
     sku: product.sku,
     brand: { "@type": "Brand", name: "WrappedWishes" },
     category: getCategoryLabel(product),
@@ -77,6 +87,20 @@ export default async function ProductPage({ params }: Props) {
       itemCondition: "https://schema.org/NewCondition",
       seller: { "@id": `${siteUrl}/#business` },
     },
+    ...(parentProduct && {
+      isVariantOf: {
+        "@type": "ProductGroup",
+        name: parentProduct.name,
+        url: `${siteUrl}/product/${parentProduct.slug}`,
+      },
+    }),
+  };
+
+  const productBreadcrumb = {
+    "@type": "ListItem",
+    position: parentProduct ? 4 : 3,
+    name: product.name,
+    item: productUrl,
   };
 
   const breadcrumbJsonLd = {
@@ -95,12 +119,17 @@ export default async function ProductPage({ params }: Props) {
         name: "Products",
         item: `${siteUrl}/products`,
       },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: product.name,
-        item: productUrl,
-      },
+      ...(parentProduct
+        ? [
+            {
+              "@type": "ListItem",
+              position: 3,
+              name: parentProduct.name,
+              item: `${siteUrl}/product/${parentProduct.slug}`,
+            },
+          ]
+        : []),
+      productBreadcrumb,
     ],
   };
 
@@ -121,12 +150,16 @@ export default async function ProductPage({ params }: Props) {
         />
 
         <div className={styles.wrap}>
-          <Link href="/products" className={styles.back}>
-            ← Back to shop
+          <Link
+            href={
+              parentProduct ? `/product/${parentProduct.slug}` : "/products"
+            }
+            className={styles.back}>
+            ← Back to {parentProduct ? parentProduct.name : "shop"}
           </Link>
 
           <div className={styles.grid}>
-            <ProductGallery images={product.images} alt={product.name} />
+            <ProductGallery images={images} alt={product.name} />
 
             <div className={styles.info}>
               <span className={styles.category}>

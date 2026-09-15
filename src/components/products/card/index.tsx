@@ -3,7 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { getCategoryLabel, type Product } from "@/data/products";
+import {
+  getCategoryLabel,
+  getProductImages,
+  type Product,
+} from "@/data/products";
 import styles from "./card.module.scss";
 
 interface ProductCardProps {
@@ -11,6 +15,8 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const coverImage = getProductImages(product)[0];
+
   return (
     <motion.div
       whileHover={{ y: -6 }}
@@ -20,9 +26,9 @@ export function ProductCard({ product }: ProductCardProps) {
         <span className={styles.category}>{getCategoryLabel(product)}</span>
 
         <div className={styles.thumb}>
-          {product.images[0] ? (
+          {coverImage ? (
             <Image
-              src={product.images[0]}
+              src={coverImage}
               alt={product.name}
               fill
               sizes="(max-width: 720px) 50vw, 25vw"

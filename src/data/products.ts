@@ -15,6 +15,8 @@ export type Product = {
   availability: ProductAvailability;
   sku: string;
   keywords: string[];
+  parentSlug?: string;
+  subProducts?: Product[];
 };
 
 export const products: Product[] = [
@@ -65,6 +67,71 @@ export const products: Product[] = [
       "personalised cake topper",
       "birthday cake topper",
       "custom cake topper NZ",
+    ],
+    subProducts: [
+      {
+        slug: "personalised-dinosaur-cake-topper",
+        name: "Personalised Dinosaur Cake Topper",
+        description:
+          "Make a dinosaur birthday cake extra special with a layered personalised topper featuring your child's name and age. Colours and wording can be customised to suit your celebration, and every topper is handmade to order in our Dunedin studio.",
+        shortDescription:
+          "A personalised dinosaur cake topper handmade with your child's name and age.",
+        price: 25,
+        currency: "NZD",
+        images: ["/products/cake-topper-1.jpg"],
+        categorySlug: "cake-toppers",
+        availability: "InStock",
+        sku: "WW-CT-DINO-001",
+        keywords: [
+          "dinosaur cake topper NZ",
+          "personalised dinosaur cake topper",
+          "dinosaur birthday cake topper",
+          "first birthday dinosaur topper",
+        ],
+        parentSlug: "personalised-cake-toppers",
+      },
+      {
+        slug: "personalised-butterfly-cake-topper",
+        name: "Personalised Butterfly Cake Topper",
+        description:
+          "Celebrate with a layered butterfly cake topper personalised with a name and age. Choose colours to complement your party theme and create a sparkling centrepiece, handmade to order in our Dunedin studio.",
+        shortDescription:
+          "A layered butterfly birthday cake topper personalised with a name, age and colours.",
+        price: 25,
+        currency: "NZD",
+        images: ["/products/cake-topper-2.jpg"],
+        categorySlug: "cake-toppers",
+        availability: "InStock",
+        sku: "WW-CT-BUTTERFLY-001",
+        keywords: [
+          "butterfly cake topper NZ",
+          "personalised butterfly cake topper",
+          "butterfly birthday cake topper",
+          "custom name cake topper",
+        ],
+        parentSlug: "personalised-cake-toppers",
+      },
+      {
+        slug: "personalised-minnie-mouse-cake-topper",
+        name: "Personalised Minnie Mouse Cake Topper",
+        description:
+          "Create a memorable Minnie Mouse birthday cake with a layered topper personalised with your child's name and age. Select colours and details to coordinate with the celebration, then we will handmake your topper to order in Dunedin.",
+        shortDescription:
+          "A personalised Minnie Mouse birthday cake topper featuring your child's name and age.",
+        price: 25,
+        currency: "NZD",
+        images: ["/products/cake-topper-3.jpg"],
+        categorySlug: "cake-toppers",
+        availability: "InStock",
+        sku: "WW-CT-MINNIE-001",
+        keywords: [
+          "Minnie Mouse cake topper NZ",
+          "personalised Minnie Mouse cake topper",
+          "Minnie birthday cake topper",
+          "custom character cake topper",
+        ],
+        parentSlug: "personalised-cake-toppers",
+      },
     ],
   },
   {
@@ -136,8 +203,28 @@ export const products: Product[] = [
   },
 ];
 
+export const allProducts = products.flatMap(product => [
+  product,
+  ...(product.subProducts ?? []),
+]);
+
 export function getProductBySlug(slug: string) {
-  return products.find(p => p.slug === slug);
+  return allProducts.find(product => product.slug === slug);
+}
+
+export function getParentProduct(product: Product) {
+  if (!product.parentSlug) return undefined;
+  return products.find(parent => parent.slug === product.parentSlug);
+}
+
+export function getProductImages(product: Product) {
+  if (product.subProducts?.length) {
+    return product.subProducts
+      .map(subProduct => subProduct.images[0])
+      .filter((image): image is string => Boolean(image));
+  }
+
+  return product.images;
 }
 
 export function getProductsByCategory(
@@ -167,6 +254,17 @@ export function getCategoryLabel(product: Product): string {
 
 /** Prefers same subcategory, falls back to same category, excludes itself. */
 export function getRelatedProducts(product: Product, limit = 4): Product[] {
+  if (product.subProducts?.length) {
+    return product.subProducts.slice(0, limit);
+  }
+
+  const parent = getParentProduct(product);
+  if (parent?.subProducts?.length) {
+    return parent.subProducts
+      .filter(subProduct => subProduct.slug !== product.slug)
+      .slice(0, limit);
+  }
+
   const sameSubcategory = product.subcategorySlug
     ? products.filter(
         p =>
