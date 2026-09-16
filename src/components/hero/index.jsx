@@ -12,7 +12,7 @@ export default function Hero() {
         <div className={styles.copy}>
           <span className={styles.eyebrow}>Handmade in New Zealand</span>
           <h1>
-            Personalised gifts and party details, <em>handmade in Dunedin.</em>
+            Personalised gifts for every, <em>occasion.</em>
           </h1>
           <p>
             From custom cake toppers and party bags to thoughtful gift packs,
