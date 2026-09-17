@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { products } from "@/data/products";
+import { featuredProducts } from "@/data/products";
 import { ProductList } from "@/components/products/list";
 import styles from "./featured.module.scss";
 
@@ -21,7 +21,7 @@ export default function FeaturedProducts() {
           </Link>
         </div>
 
-        <ProductList products={products.slice(0, 4)} />
+        <ProductList products={featuredProducts.slice(0, 4)} />
       </div>
     </section>
   );

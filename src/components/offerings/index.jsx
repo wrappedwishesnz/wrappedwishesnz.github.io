@@ -21,8 +21,8 @@ export default function Offerings() {
     <section className={styles.offerings} id="offerings">
       <div className={styles.wrap}>
         <Reveal as="div" className={styles.sectionHead}>
-          <span className={styles.eyebrow}>What I make</span>
-          <h2>Something for every occasion.</h2>
+          <span className={styles.eyebrow}>Shop by category</span>
+          <h2>Find something for every occasion.</h2>
           <p>
             From heartfelt keepsakes to whimsical party extras — every piece is
             made by hand, just for you.

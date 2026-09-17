@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import {
   getCategoryLabel,
   getProductImages,
+  formatProductPrice,
   type Product,
 } from "@/data/products";
 import styles from "./card.module.scss";
@@ -17,12 +18,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const coverImage = getProductImages(product)[0];
-  const formattedPrice = new Intl.NumberFormat("en-NZ", {
-    style: "currency",
-    currency: product.currency,
-    maximumFractionDigits: 0,
-  }).format(product.price);
-  const designCount = product.subProducts?.length ?? 0;
+  const formattedPrice = formatProductPrice(product);
 
   return (
     <motion.div
@@ -51,19 +47,16 @@ export function ProductCard({ product }: ProductCardProps) {
         <p className={styles.blurb}>{product.shortDescription}</p>
 
         <div className={styles.meta}>
-          <span className={styles.price}>
-            {designCount ? "From " : ""}
-            {formattedPrice} NZD
-          </span>
-          {designCount > 0 && (
+          <span className={styles.price}>{formattedPrice}</span>
+          {product.orderOptions?.length ? (
             <span className={styles.designs}>
-              {designCount} designs available
+              {product.orderOptions.length} order sizes available
             </span>
-          )}
+          ) : null}
         </div>
 
         <div className={styles.footer}>
-          <span>View {designCount ? "designs" : "details"}</span>
+          <span>View details</span>
           <ArrowUpRight className={styles.arrow} size={16} strokeWidth={2} />
         </div>
       </Link>

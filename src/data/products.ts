@@ -7,7 +7,8 @@ export type Product = {
   name: string;
   description: string;
   shortDescription: string;
-  price: number;
+  price?: number;
+  priceFrom?: boolean;
   currency: string;
   images: string[]; // first entry is the cover image used on cards
   categorySlug: string;
@@ -15,8 +16,9 @@ export type Product = {
   availability: ProductAvailability;
   sku: string;
   keywords: string[];
-  parentSlug?: string;
-  subProducts?: Product[];
+  active: boolean;
+  featured?: boolean;
+  orderOptions?: string[];
 };
 
 export const products: Product[] = [
@@ -44,151 +46,126 @@ export const products: Product[] = [
       "birthday favours",
       "party bags NZ",
     ],
+    active: true,
+    featured: true,
   },
   {
-    slug: "personalised-cake-toppers",
-    name: "Personalised Cake Toppers",
+    slug: "personalised-honey-bee-shaker-cake-topper",
+    name: "Personalised Honey Bee Shaker Cake Topper",
     description:
-      "Custom cake toppers designed to match your birthday celebration. Choose your preferred colours, name, age and theme.",
+      "Add a sweet touch to a special birthday with a personalised honey bee shaker cake topper featuring your child's name and age. Designed with playful bee details and colourful shaker elements, then handmade to order in Dunedin.",
     shortDescription:
-      "Custom cake toppers for birthdays and special celebrations.",
-    price: 25,
+      "A personalised honey bee shaker cake topper featuring your child's name and age.",
+    price: 40,
     currency: "NZD",
     images: [
       "/products/cake-topper-honey-1.png",
-      "/products/cake-topper-dino.jpg",
-      "/products/cake-topper-butterfly.jpg",
+      "/products/cake-topper-honey-2.png",
+    ],
+    categorySlug: "cake-toppers",
+    availability: "InStock",
+    sku: "WW-CT-BEE-SHAKER-001",
+    keywords: [
+      "honey bee cake topper NZ",
+      "personalised bee cake topper",
+      "bee birthday cake topper",
+      "honey bee shaker cake topper",
+      "shaker cake topper NZ",
+      "custom bee cake topper",
+    ],
+    active: true,
+    featured: true,
+  },
+  {
+    slug: "personalised-dinosaur-cake-topper",
+    name: "Personalised Dinosaur Cake Topper",
+    description:
+      "Make a dinosaur birthday cake extra special with a layered personalised topper featuring your child's name and age. Colours and wording can be customised to suit your celebration, and every topper is handmade to order in our Dunedin studio.",
+    shortDescription:
+      "A personalised dinosaur cake topper handmade with your child's name and age.",
+    price: 20,
+    currency: "NZD",
+    images: ["/products/cake-topper-dino.jpg"],
+    categorySlug: "cake-toppers",
+    availability: "InStock",
+    sku: "WW-CT-DINO-001",
+    keywords: [
+      "dinosaur cake topper NZ",
+      "personalised dinosaur cake topper",
+      "dinosaur birthday cake topper",
+      "first birthday dinosaur topper",
+    ],
+    active: true,
+    featured: true,
+  },
+  {
+    slug: "personalised-butterfly-cake-topper",
+    name: "Personalised Butterfly Cake Topper",
+    description:
+      "Celebrate with a layered butterfly cake topper personalised with a name and age. Choose colours to complement your party theme and create a sparkling centrepiece, handmade to order in our Dunedin studio.",
+    shortDescription:
+      "A layered butterfly birthday cake topper personalised with a name, age and colours.",
+    price: 25,
+    currency: "NZD",
+    images: ["/products/cake-topper-butterfly.jpg"],
+    categorySlug: "cake-toppers",
+    availability: "InStock",
+    sku: "WW-CT-BUTTERFLY-001",
+    keywords: [
+      "butterfly cake topper NZ",
+      "personalised butterfly cake topper",
+      "butterfly birthday cake topper",
+      "custom name cake topper",
+    ],
+    active: true,
+  },
+  {
+    slug: "personalised-soccer-cake-topper",
+    name: "Personalised Soccer Cake Topper",
+    description:
+      "Celebrate a soccer-loving birthday with a personalised layered cake topper featuring your child's name and age. Choose colours and details to match their favourite team or party theme, then we will handmake your topper to order in Dunedin.",
+    shortDescription:
+      "A personalised soccer birthday cake topper featuring your child's name and age.",
+    price: 25,
+    currency: "NZD",
+    images: [
+      "/products/cake-topper-soccer-2.png",
       "/products/cake-topper-soccer-1.png",
     ],
     categorySlug: "cake-toppers",
     availability: "InStock",
-    sku: "WW-CT-001",
+    sku: "WW-CT-SOCCER-001",
     keywords: [
-      "cake toppers",
-      "personalised cake topper",
-      "birthday cake topper",
-      "custom cake topper NZ",
+      "soccer cake topper NZ",
+      "personalised soccer cake topper",
+      "soccer birthday cake topper",
+      "football cake topper",
+      "custom soccer cake topper",
     ],
-    subProducts: [
-      {
-        slug: "personalised-honey-bee-shaker-cake-topper",
-        name: "Personalised Honey Bee Shaker Cake Topper",
-        description:
-          "Add a sweet touch to a special birthday with a personalised honey bee shaker cake topper featuring your child's name and age. Designed with playful bee details and colourful shaker elements, then handmade to order in Dunedin.",
-        shortDescription:
-          "A personalised honey bee shaker cake topper featuring your child's name and age.",
-        price: 40,
-        currency: "NZD",
-        images: [
-          "/products/cake-topper-honey-1.png",
-          "/products/cake-topper-honey-2.png",
-        ],
-        categorySlug: "cake-toppers",
-        availability: "InStock",
-        sku: "WW-CT-BEE-SHAKER-001",
-        keywords: [
-          "honey bee cake topper NZ",
-          "personalised bee cake topper",
-          "bee birthday cake topper",
-          "honey bee shaker cake topper",
-          "shaker cake topper NZ",
-          "custom bee cake topper",
-        ],
-
-        parentSlug: "personalised-cake-toppers",
-      },
-      {
-        slug: "personalised-dinosaur-cake-topper",
-        name: "Personalised Dinosaur Cake Topper",
-        description:
-          "Make a dinosaur birthday cake extra special with a layered personalised topper featuring your child's name and age. Colours and wording can be customised to suit your celebration, and every topper is handmade to order in our Dunedin studio.",
-        shortDescription:
-          "A personalised dinosaur cake topper handmade with your child's name and age.",
-        price: 20,
-        currency: "NZD",
-        images: ["/products/cake-topper-dino.jpg"],
-        categorySlug: "cake-toppers",
-        availability: "InStock",
-        sku: "WW-CT-DINO-001",
-        keywords: [
-          "dinosaur cake topper NZ",
-          "personalised dinosaur cake topper",
-          "dinosaur birthday cake topper",
-          "first birthday dinosaur topper",
-        ],
-        parentSlug: "personalised-cake-toppers",
-      },
-      {
-        slug: "personalised-butterfly-cake-topper",
-        name: "Personalised Butterfly Cake Topper",
-        description:
-          "Celebrate with a layered butterfly cake topper personalised with a name and age. Choose colours to complement your party theme and create a sparkling centrepiece, handmade to order in our Dunedin studio.",
-        shortDescription:
-          "A layered butterfly birthday cake topper personalised with a name, age and colours.",
-        price: 25,
-        currency: "NZD",
-        images: ["/products/cake-topper-butterfly.jpg"],
-        categorySlug: "cake-toppers",
-        availability: "InStock",
-        sku: "WW-CT-BUTTERFLY-001",
-        keywords: [
-          "butterfly cake topper NZ",
-          "personalised butterfly cake topper",
-          "butterfly birthday cake topper",
-          "custom name cake topper",
-        ],
-        parentSlug: "personalised-cake-toppers",
-      },
-      {
-        slug: "personalised-soccer-cake-topper",
-        name: "Personalised Soccer Cake Topper",
-        description:
-          "Celebrate a soccer-loving birthday with a personalised layered cake topper featuring your child's name and age. Choose colours and details to match their favourite team or party theme, then we will handmake your topper to order in Dunedin.",
-        shortDescription:
-          "A personalised soccer birthday cake topper featuring your child's name and age.",
-        price: 25,
-        currency: "NZD",
-        images: [
-          "/products/cake-topper-soccer-2.png",
-          "/products/cake-topper-soccer-1.png",
-        ],
-        categorySlug: "cake-toppers",
-        availability: "InStock",
-        sku: "WW-CT-SOCCER-001",
-        keywords: [
-          "soccer cake topper NZ",
-          "personalised soccer cake topper",
-          "soccer birthday cake topper",
-          "football cake topper",
-          "custom soccer cake topper",
-        ],
-        parentSlug: "personalised-cake-toppers",
-      },
-      {
-        slug: "personalised-rainbow-cake-topper",
-        name: "Personalised Rainbow Cake Topper",
-        description:
-          "Add a colourful touch to a special birthday with a personalised rainbow cake topper featuring your child's name and age, surrounded by fluffy clouds and sparkling stars. Choose colours to match your celebration, then we will handmake your topper to order in Dunedin.",
-        shortDescription:
-          "A colourful personalised rainbow birthday cake topper featuring your child's name, age, clouds and stars.",
-        price: 25,
-        currency: "NZD",
-        images: ["/products/cake-topper-rainbow.jpg"],
-        categorySlug: "cake-toppers",
-        availability: "InStock",
-        sku: "WW-CT-RAINBOW-001",
-        keywords: [
-          "rainbow cake topper NZ",
-          "personalised rainbow cake topper",
-          "rainbow birthday cake topper",
-          "rainbow name and age cake topper",
-          "cloud and star cake topper",
-          "colourful birthday cake topper",
-          "custom rainbow cake topper",
-        ],
-        parentSlug: "personalised-cake-toppers",
-      },
+    active: true,
+  },
+  {
+    slug: "personalised-rainbow-cake-topper",
+    name: "Personalised Rainbow Cake Topper",
+    description:
+      "Add a colourful touch to a special birthday with a personalised rainbow cake topper featuring your child's name and age, surrounded by fluffy clouds and sparkling stars. Choose colours to match your celebration, then we will handmake your topper to order in Dunedin.",
+    shortDescription:
+      "A colourful personalised rainbow birthday cake topper featuring a name, age, clouds and stars.",
+    price: 25,
+    currency: "NZD",
+    images: ["/products/cake-topper-rainbow.jpg"],
+    categorySlug: "cake-toppers",
+    availability: "InStock",
+    sku: "WW-CT-RAINBOW-001",
+    keywords: [
+      "rainbow cake topper NZ",
+      "personalised rainbow cake topper",
+      "rainbow birthday cake topper",
+      "rainbow name and age cake topper",
+      "cloud and star cake topper",
+      "custom rainbow cake topper",
     ],
+    active: true,
   },
   {
     slug: "personalised-gift-packs",
@@ -209,35 +186,78 @@ export const products: Product[] = [
       "gift packs NZ",
       "custom gifts NZ",
     ],
+    active: true,
   },
-  // {
-  //   slug: "memory-shadow-box",
-  //   name: "Memory Shadow Box",
-  //   description:
-  //     "A framed keepsake for photos, tickets & small treasures — arranged by hand behind glass. Tell us what you'd like included and we'll help plan the layout.",
-  //   shortDescription:
-  //     "A framed keepsake for photos, tickets & small treasures.",
-  //   price: 85,
-  //   currency: "NZD",
-  //   images: [
-  //     "/products/shadow-box-1.jpg",
-  //     "/products/shadow-box-2.jpg",
-  //     "/products/shadow-box-3.jpg",
-  //   ],
-  //   categorySlug: "keepsakes",
-  //   subcategorySlug: "shadow-boxes",
-  //   availability: "InStock",
-  //   sku: "WW-SB-001",
-  //   keywords: ["shadow box", "memory box", "keepsake frame NZ"],
-  // },
+  {
+    slug: "magnetic-photo-prints",
+    name: "Magnetic Photo Prints",
+    description:
+      "Turn favourite photos into personalised magnetic prints for the fridge, office or a thoughtful keepsake gift. Share your chosen images and we will prepare each print to order in our Dunedin studio.",
+    shortDescription:
+      "Personalised magnetic photo prints made from your favourite memories.",
+    currency: "NZD",
+    images: [],
+    categorySlug: "gift-hampers",
+    subcategorySlug: "magnets",
+    availability: "InStock",
+    sku: "WW-GH-MAG-001",
+    keywords: [
+      "magnetic photo prints NZ",
+      "personalised photo magnets",
+      "custom fridge magnets",
+      "photo keepsake gift",
+    ],
+    active: false,
+  },
+  {
+    slug: "personalised-keychains",
+    name: "Personalised Keychains",
+    description:
+      "Create a personalised keychain with your chosen name, wording or design. Each keychain is made to order and is a practical little gift for birthdays, thank-yous and everyday keepsakes.",
+    shortDescription:
+      "Custom keychains personalised with a name, wording or special design.",
+    currency: "NZD",
+    images: [],
+    categorySlug: "gift-hampers",
+    availability: "InStock",
+    sku: "WW-GH-KEY-001",
+    keywords: [
+      "personalised keychains NZ",
+      "custom name keychain",
+      "personalised keepsake",
+      "small personalised gift",
+    ],
+    active: false,
+  },
+  {
+    slug: "personalised-stacking-calendar",
+    name: "Personalised Stacking Calendar",
+    description:
+      "A reusable stacking calendar personalised for your home, desk or as a thoughtful gift. Choose the wording, colours and finishing details to create a practical keepsake that can be enjoyed throughout the year.",
+    shortDescription:
+      "A reusable stacking calendar personalised with your chosen details.",
+    currency: "NZD",
+    images: [],
+    categorySlug: "gift-hampers",
+    availability: "InStock",
+    sku: "WW-GH-CAL-001",
+    keywords: [
+      "personalised stacking calendar NZ",
+      "reusable desk calendar",
+      "custom perpetual calendar",
+      "personalised home gift",
+    ],
+    active: false,
+  },
   {
     slug: "paint-your-own-plaster-bulk-pack",
-    name: "Paint Your Own Plaster Bulk Pack",
+    name: "Bulk Paint-Your-Own Plaster Pack",
     description:
-      "A fun and creative activity for birthday parties, playgroups, classrooms and events. Choose from a selection of ready-to-paint plaster figures and order in bulk for your group.",
+      "A creative activity pack for birthday parties, playgroups, classrooms and events. Choose a 30, 40 or 50-piece pack of ready-to-paint plaster figures, with the final price confirmed for your selected quantity and figure mix.",
     shortDescription:
-      "Ready-to-paint plaster figures for parties, groups and craft activities.",
+      "Bulk ready-to-paint plaster figures in 30, 40 or 50-piece packs.",
     price: 30,
+    priceFrom: true,
     currency: "NZD",
     images: [
       "/products/plaster-bulk-1.jpg",
@@ -246,98 +266,110 @@ export const products: Product[] = [
       "/products/plaster-bulk-4.jpg",
     ],
     categorySlug: "plaster-crafts",
-    subcategorySlug: "paint-your-own",
     availability: "InStock",
-    sku: "WW-PC-002",
+    sku: "WW-PC-BULK-001",
     keywords: [
+      "bulk plaster figures NZ",
       "plaster painting party",
-      "bulk plaster figures",
       "kids party activity",
-      "party craft NZ",
+      "classroom craft activity",
       "paint your own plaster",
-      "kids craft activity",
     ],
+    active: true,
+    featured: true,
+    orderOptions: ["30-piece pack", "40-piece pack", "50-piece pack"],
+  },
+  {
+    slug: "small-paint-your-own-plaster-kit",
+    name: "Small Paint-Your-Own Plaster Kit",
+    description:
+      "A small paint-your-own plaster kit packaged for an easy creative activity or gift. Choose one, two or three plaster figures, with the final contents and price confirmed when you enquire.",
+    shortDescription:
+      "A small paint-your-own kit with your choice of one to three plaster figures.",
+    currency: "NZD",
+    images: [],
+    categorySlug: "plaster-crafts",
+    availability: "InStock",
+    sku: "WW-PC-SMALL-001",
+    keywords: [
+      "small plaster painting kit NZ",
+      "paint your own plaster kit",
+      "kids craft packet",
+      "plaster figure activity",
+      "small craft gift",
+    ],
+    active: true,
+    orderOptions: ["1-figure packet", "2-figure packet", "3-figure packet"],
   },
 ];
 
-export const allProducts = products.flatMap(product => [
-  product,
-  ...(product.subProducts ?? []),
-]);
+export const activeProducts = products.filter(product => product.active);
+
+export const featuredProducts = activeProducts.filter(
+  product => product.featured
+);
 
 export function getProductBySlug(slug: string) {
-  return allProducts.find(product => product.slug === slug);
-}
-
-export function getParentProduct(product: Product) {
-  if (!product.parentSlug) return undefined;
-  return products.find(parent => parent.slug === product.parentSlug);
+  return activeProducts.find(product => product.slug === slug);
 }
 
 export function getProductImages(product: Product) {
-  if (product.subProducts?.length) {
-    return product.subProducts
-      .map(subProduct => subProduct.images[0])
-      .filter((image): image is string => Boolean(image));
-  }
-
   return product.images;
+}
+
+export function formatProductPrice(product: Product) {
+  if (product.price === undefined) return "Price on enquiry";
+
+  const formattedPrice = new Intl.NumberFormat("en-NZ", {
+    style: "currency",
+    currency: product.currency,
+    maximumFractionDigits: 0,
+  }).format(product.price);
+
+  return `${product.priceFrom ? "From " : ""}${formattedPrice} NZD`;
 }
 
 export function getProductsByCategory(
   categorySlug: string,
   subcategorySlug?: string
 ) {
-  return products.filter(
-    p =>
-      p.categorySlug === categorySlug &&
-      (!subcategorySlug || p.subcategorySlug === subcategorySlug)
+  return activeProducts.filter(
+    product =>
+      product.categorySlug === categorySlug &&
+      (!subcategorySlug || product.subcategorySlug === subcategorySlug)
   );
 }
 
-/** Human-readable category string, e.g. "Keepsakes" or "Keepsakes > Shadow Boxes" */
+/** Human-readable category string, e.g. "Gifts & Keepsakes → Magnetic Prints". */
 export function getCategoryLabel(product: Product): string {
   const category = getCategoryBySlug(product.categorySlug);
   if (!category) return "";
   if (product.subcategorySlug) {
-    const sub = getSubcategoryBySlug(
+    const subcategory = getSubcategoryBySlug(
       product.categorySlug,
       product.subcategorySlug
     );
-    if (sub) return `${category.name} > ${sub.name}`;
+    if (subcategory) return `${category.name} → ${subcategory.name}`;
   }
   return category.name;
 }
 
-/** Prefers same subcategory, falls back to same category, excludes itself. */
+/** Prefers the same subcategory, then fills from the same category. */
 export function getRelatedProducts(product: Product, limit = 4): Product[] {
-  if (product.subProducts?.length) {
-    return product.subProducts.slice(0, limit);
-  }
-
-  const parent = getParentProduct(product);
-  if (parent?.subProducts?.length) {
-    return parent.subProducts
-      .filter(subProduct => subProduct.slug !== product.slug)
-      .slice(0, limit);
-  }
-
   const sameSubcategory = product.subcategorySlug
-    ? products.filter(
-        p =>
-          p.slug !== product.slug &&
-          p.categorySlug === product.categorySlug &&
-          p.subcategorySlug === product.subcategorySlug
+    ? activeProducts.filter(
+        candidate =>
+          candidate.slug !== product.slug &&
+          candidate.categorySlug === product.categorySlug &&
+          candidate.subcategorySlug === product.subcategorySlug
       )
     : [];
 
-  if (sameSubcategory.length >= limit) return sameSubcategory.slice(0, limit);
-
-  const sameCategory = products.filter(
-    p =>
-      p.slug !== product.slug &&
-      p.categorySlug === product.categorySlug &&
-      !sameSubcategory.some(s => s.slug === p.slug)
+  const sameCategory = activeProducts.filter(
+    candidate =>
+      candidate.slug !== product.slug &&
+      candidate.categorySlug === product.categorySlug &&
+      !sameSubcategory.some(match => match.slug === candidate.slug)
   );
 
   return [...sameSubcategory, ...sameCategory].slice(0, limit);

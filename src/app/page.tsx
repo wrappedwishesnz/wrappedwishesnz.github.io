@@ -25,8 +25,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <FeaturedProducts />
       <Offerings />
+      <FeaturedProducts />
       <HowItWorks />
       <About />
       <Enquiry />

@@ -8,7 +8,7 @@ import {
 export const metadata: Metadata = {
   title: "Personalised Gifts & Party Supplies",
   description:
-    "Browse personalised party bags, custom cake toppers, gift packs and paint-your-own plaster kits, handmade in Dunedin with NZ-wide delivery.",
+    "Browse personalised party bags, custom cake toppers, keepsake gifts and paint-your-own plaster kits, handmade in Dunedin with New Zealand-wide delivery.",
   alternates: { canonical: "/products" },
   openGraph: {
     title: "Personalised Gifts & Party Supplies NZ",

@@ -55,7 +55,7 @@ export function CategoryFilter() {
         ))}
       </div>
 
-      {subcategories.length > 1 && (
+      {subcategories.length > 0 && (
         <div className={`${styles.row} ${styles.subRow}`}>
           <Pill
             label="All"

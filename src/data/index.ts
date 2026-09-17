@@ -1,10 +1,10 @@
 import { categories } from "./categories";
 
-import { products } from "./products";
+import { activeProducts } from "./products";
 
 export const activeCategories = categories
   .map(category => {
-    const categoryProducts = products.filter(
+    const categoryProducts = activeProducts.filter(
       product => product.categorySlug === category.slug
     );
 

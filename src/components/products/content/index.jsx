@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { CategoryFilter } from "@/components/category/filter";
 import { ProductList } from "@/components/products/list";
-import { products } from "@/data/products";
+import { activeProducts } from "@/data/products";
 import { getCategoryBySlug, getSubcategoryBySlug } from "@/data/categories";
 import styles from "./content.module.scss";
 import Enquiry from "@/components/enquiry";
@@ -30,13 +30,16 @@ export function ProductsContent() {
       ? getSubcategoryBySlug(categorySlug, subcategorySlug)
       : undefined;
 
-  const filtered = products.filter(p => {
+  const filtered = activeProducts.filter(p => {
     if (categorySlug && p.categorySlug !== categorySlug) return false;
     if (subcategorySlug && p.subcategorySlug !== subcategorySlug) return false;
     return true;
   });
 
-  const heading = subcategory?.name ?? category?.name ?? "All products";
+  const heading =
+    category && subcategory
+      ? `${category.name} → ${subcategory.name}`
+      : (category?.name ?? "All products");
   const description =
     subcategory?.description ??
     category?.description ??

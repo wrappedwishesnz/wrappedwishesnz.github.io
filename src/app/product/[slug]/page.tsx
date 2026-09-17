@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
-  allProducts,
+  activeProducts,
+  formatProductPrice,
   getCategoryLabel,
-  getParentProduct,
   getProductBySlug,
   getProductImages,
 } from "@/data/products";
@@ -18,7 +18,7 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return allProducts.map(product => ({ slug: product.slug }));
+  return activeProducts.map(product => ({ slug: product.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -47,13 +47,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: product.description,
       url: `/product/${product.slug}`,
       type: "website",
-      images: images.map(image => ({ url: image, alt: product.name })),
+      ...(images.length > 0 && {
+        images: images.map(image => ({ url: image, alt: product.name })),
+      }),
     },
     twitter: {
       card: "summary_large_image",
       title: `${product.name} NZ`,
       description: product.shortDescription,
-      images: [images[0]],
+      ...(images[0] && { images: [images[0]] }),
     },
   };
 }
@@ -66,44 +68,36 @@ export default async function ProductPage({ params }: Props) {
 
   const siteUrl = "https://www.wrappedwishes.nz";
   const productUrl = `${siteUrl}/product/${slug}`;
-  const parentProduct = getParentProduct(product);
   const images = getProductImages(product);
-  const formattedPrice = new Intl.NumberFormat("en-NZ", {
-    style: "currency",
-    currency: product.currency,
-    maximumFractionDigits: 0,
-  }).format(product.price);
+  const formattedPrice = formatProductPrice(product);
 
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
-    image: images.map(img => `${siteUrl}${img}`),
+    ...(images.length > 0 && {
+      image: images.map(img => `${siteUrl}${img}`),
+    }),
     sku: product.sku,
     brand: { "@type": "Brand", name: "WrappedWishes" },
     category: getCategoryLabel(product),
-    offers: {
-      "@type": "Offer",
-      url: productUrl,
-      priceCurrency: product.currency,
-      price: product.price.toFixed(2),
-      availability: `https://schema.org/${product.availability}`,
-      itemCondition: "https://schema.org/NewCondition",
-      seller: { "@id": `${siteUrl}/#business` },
-    },
-    ...(parentProduct && {
-      isVariantOf: {
-        "@type": "ProductGroup",
-        name: parentProduct.name,
-        url: `${siteUrl}/product/${parentProduct.slug}`,
+    ...(product.price !== undefined && {
+      offers: {
+        "@type": "Offer",
+        url: productUrl,
+        priceCurrency: product.currency,
+        price: product.price.toFixed(2),
+        availability: `https://schema.org/${product.availability}`,
+        itemCondition: "https://schema.org/NewCondition",
+        seller: { "@id": `${siteUrl}/#business` },
       },
     }),
   };
 
   const productBreadcrumb = {
     "@type": "ListItem",
-    position: parentProduct ? 4 : 3,
+    position: 3,
     name: product.name,
     item: productUrl,
   };
@@ -124,16 +118,6 @@ export default async function ProductPage({ params }: Props) {
         name: "Products",
         item: `${siteUrl}/products`,
       },
-      ...(parentProduct
-        ? [
-            {
-              "@type": "ListItem",
-              position: 3,
-              name: parentProduct.name,
-              item: `${siteUrl}/product/${parentProduct.slug}`,
-            },
-          ]
-        : []),
       productBreadcrumb,
     ],
   };
@@ -156,11 +140,9 @@ export default async function ProductPage({ params }: Props) {
 
         <div className={styles.wrap}>
           <Link
-            href={
-              parentProduct ? `/product/${parentProduct.slug}` : "/products"
-            }
+            href={`/products?category=${product.categorySlug}`}
             className={styles.back}>
-            ← Back to {parentProduct ? parentProduct.name : "shop"}
+            ← Back to {getCategoryLabel(product)}
           </Link>
 
           <div className={styles.grid}>
@@ -172,13 +154,20 @@ export default async function ProductPage({ params }: Props) {
               </span>
               <h1>{product.name}</h1>
               <div className={styles.purchaseMeta}>
-                <p className={styles.price}>
-                  {product.subProducts?.length ? "From " : ""}
-                  {formattedPrice} NZD
-                </p>
+                <p className={styles.price}>{formattedPrice}</p>
                 <span className={styles.madeToOrder}>Made to order</span>
               </div>
               <p className={styles.description}>{product.description}</p>
+              {product.orderOptions?.length ? (
+                <div className={styles.options}>
+                  <h2>Available order sizes</h2>
+                  <ul>
+                    {product.orderOptions.map(option => (
+                      <li key={option}>{option}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <Link href={"#enquiry"} className={styles.cta}>
                 Enquire about this piece
               </Link>
