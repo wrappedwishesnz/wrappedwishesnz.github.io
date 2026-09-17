@@ -12,19 +12,20 @@ export type Category = {
   image: string;
   subcategories: Subcategory[];
 };
-
-export const categories = [
+export const categories: Category[] = [
   {
     slug: "party-favours",
     name: "Party Favours",
-    description: "Birthday return gifts & themed party packs.",
+    description:
+      "Thoughtful little gifts and fun surprises to make every celebration memorable.",
     image: "/categories/party-favours.jpg",
     subcategories: [] as Subcategory[],
   },
   {
     slug: "cake-toppers",
     name: "Cake Toppers",
-    description: "Birthday & cupcake toppers, made to match your theme.",
+    description:
+      "Personalised cake toppers made to match your celebration, theme and special moment.",
     image: "/categories/cake-toppers.jpg",
     subcategories: [] as Subcategory[],
   },
@@ -32,26 +33,27 @@ export const categories = [
     slug: "gift-hampers",
     name: "Gifts & Keepsakes",
     description:
-      "Personalised gift packs, photo keepsakes and thoughtful custom pieces.",
+      "Custom gifts and keepsakes made to celebrate birthdays, memories and special occasions.",
     image: "/categories/gift-hampers.jpg",
     subcategories: [
       {
         slug: "magnets",
-        name: "Magnetics",
-        description: "Personalised photo magnets.",
+        name: "Photo Magnets",
+        description:
+          "Turn favourite memories into personalised keepsakes for the fridge or home.",
         image: "/categories/magnets.jpg",
       },
     ],
   },
   {
     slug: "plaster-crafts",
-    name: "Plaster Crafts",
+    name: "Plaster Art & Craft Kits",
     description:
-      "Paint-your-own plaster pieces, craft kits & decorative shapes.",
+      "Creative paint-your-own activities for parties, playtime, gifts and little artists.",
     image: "/categories/plaster-crafts.jpg",
     subcategories: [] as Subcategory[],
   },
-] as const satisfies Category[];
+];
 
 export type CategorySlug = (typeof categories)[number]["slug"];
 

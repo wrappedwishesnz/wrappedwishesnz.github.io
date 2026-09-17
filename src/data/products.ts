@@ -26,9 +26,9 @@ export const products: Product[] = [
     slug: "personalised-birthday-party-bags",
     name: "Personalised Birthday Party Bags",
     description:
-      "Personalised birthday party bags designed for children's celebrations. Choose your preferred theme, colours, name and age to create a unique party favour for your guests.",
+      "Fun and thoughtful party bags made to match your child's birthday theme. Choose the theme, colours, name and age to create a special favour for each guest.",
     shortDescription:
-      "Personalised party bags for children's birthday celebrations.",
+      "Personalised party bags made to match your birthday theme.",
     price: 12,
     currency: "NZD",
     images: [
@@ -53,9 +53,9 @@ export const products: Product[] = [
     slug: "personalised-honey-bee-shaker-cake-topper",
     name: "Personalised Honey Bee Shaker Cake Topper",
     description:
-      "Add a sweet touch to a special birthday with a personalised honey bee shaker cake topper featuring your child's name and age. Designed with playful bee details and colourful shaker elements, then handmade to order in Dunedin.",
+      "A playful honey bee cake topper personalised with your child's name and age. Colourful shaker details and bee-inspired elements make it a fun centrepiece for a special birthday cake.",
     shortDescription:
-      "A personalised honey bee shaker cake topper featuring your child's name and age.",
+      "A colourful honey bee shaker topper personalised with a name and age.",
     price: 40,
     currency: "NZD",
     images: [
@@ -80,9 +80,9 @@ export const products: Product[] = [
     slug: "personalised-dinosaur-cake-topper",
     name: "Personalised Dinosaur Cake Topper",
     description:
-      "Make a dinosaur birthday cake extra special with a layered personalised topper featuring your child's name and age. Colours and wording can be customised to suit your celebration, and every topper is handmade to order in our Dunedin studio.",
+      "A fun layered dinosaur cake topper made especially for a dinosaur-loving birthday. Add your child's name and age, and choose colours to complement your party theme.",
     shortDescription:
-      "A personalised dinosaur cake topper handmade with your child's name and age.",
+      "A fun layered dinosaur topper made especially for their birthday cake.",
     price: 20,
     currency: "NZD",
     images: ["/products/cake-topper-dino.jpg"],
@@ -102,9 +102,9 @@ export const products: Product[] = [
     slug: "personalised-butterfly-cake-topper",
     name: "Personalised Butterfly Cake Topper",
     description:
-      "Celebrate with a layered butterfly cake topper personalised with a name and age. Choose colours to complement your party theme and create a sparkling centrepiece, handmade to order in our Dunedin studio.",
+      "A delicate layered butterfly cake topper personalised with a name and age. Choose colours to complement the cake and create a beautiful centrepiece for the celebration.",
     shortDescription:
-      "A layered butterfly birthday cake topper personalised with a name, age and colours.",
+      "A delicate butterfly topper personalised with a name, age and colours.",
     price: 25,
     currency: "NZD",
     images: ["/products/cake-topper-butterfly.jpg"],
@@ -123,9 +123,9 @@ export const products: Product[] = [
     slug: "personalised-soccer-cake-topper",
     name: "Personalised Soccer Cake Topper",
     description:
-      "Celebrate a soccer-loving birthday with a personalised layered cake topper featuring your child's name and age. Choose colours and details to match their favourite team or party theme, then we will handmake your topper to order in Dunedin.",
+      "A custom soccer cake topper for football-loving birthday celebrations. Add a name and age, then choose colours and details to complement the party theme or favourite team.",
     shortDescription:
-      "A personalised soccer birthday cake topper featuring your child's name and age.",
+      "A custom soccer topper for football-loving birthday celebrations.",
     price: 25,
     currency: "NZD",
     images: [
@@ -148,9 +148,9 @@ export const products: Product[] = [
     slug: "personalised-rainbow-cake-topper",
     name: "Personalised Rainbow Cake Topper",
     description:
-      "Add a colourful touch to a special birthday with a personalised rainbow cake topper featuring your child's name and age, surrounded by fluffy clouds and sparkling stars. Choose colours to match your celebration, then we will handmake your topper to order in Dunedin.",
+      "A cheerful rainbow cake topper personalised with a name and age, surrounded by fluffy clouds and sparkling stars. Choose your colours to create a bright addition to any birthday cake.",
     shortDescription:
-      "A colourful personalised rainbow birthday cake topper featuring a name, age, clouds and stars.",
+      "A cheerful rainbow topper with a personalised name, age, clouds and stars.",
     price: 25,
     currency: "NZD",
     images: ["/products/cake-topper-rainbow.jpg"],
@@ -171,9 +171,8 @@ export const products: Product[] = [
     slug: "personalised-gift-packs",
     name: "Personalised Gift Packs",
     description:
-      "Beautiful personalised gift packs created for birthdays and special occasions. Custom themes and designs are available.",
-    shortDescription:
-      "Personalised gift packs for birthdays and special occasions.",
+      "Thoughtful gift packs created for birthdays and special occasions. Choose a theme and personalised details to create a gift made especially for the recipient.",
+    shortDescription: "Custom gift packs for birthdays and special occasions.",
     price: 25,
     currency: "NZD",
     images: ["/products/gift-pack-1.jpg", "/products/gift-pack-2.jpg"],
@@ -190,11 +189,11 @@ export const products: Product[] = [
   },
   {
     slug: "magnetic-photo-prints",
-    name: "Magnetic Photo Prints",
+    name: "Personalised Photo Magnets",
     description:
-      "Turn favourite photos into personalised magnetic prints for the fridge, office or a thoughtful keepsake gift. Share your chosen images and we will prepare each print to order in our Dunedin studio.",
+      "Turn favourite photos into personalised magnets for the fridge, office or a thoughtful keepsake. Share your chosen images and we'll turn your memories into something you can enjoy every day.",
     shortDescription:
-      "Personalised magnetic photo prints made from your favourite memories.",
+      "Favourite memories turned into personalised photo magnets.",
     currency: "NZD",
     images: [],
     categorySlug: "gift-hampers",
@@ -213,9 +212,9 @@ export const products: Product[] = [
     slug: "personalised-keychains",
     name: "Personalised Keychains",
     description:
-      "Create a personalised keychain with your chosen name, wording or design. Each keychain is made to order and is a practical little gift for birthdays, thank-yous and everyday keepsakes.",
+      "A small personalised gift made with your chosen name, wording or design. Perfect for birthdays, thank-yous, party favours or keeping a special name close at hand.",
     shortDescription:
-      "Custom keychains personalised with a name, wording or special design.",
+      "Custom keychains personalised with a name, wording or design.",
     currency: "NZD",
     images: [],
     categorySlug: "gift-hampers",
@@ -233,9 +232,9 @@ export const products: Product[] = [
     slug: "personalised-stacking-calendar",
     name: "Personalised Stacking Calendar",
     description:
-      "A reusable stacking calendar personalised for your home, desk or as a thoughtful gift. Choose the wording, colours and finishing details to create a practical keepsake that can be enjoyed throughout the year.",
+      "A reusable stacking calendar designed for your home, desk or as a thoughtful gift. Personalise the wording, colours and finishing details to create a practical keepsake you'll enjoy year after year.",
     shortDescription:
-      "A reusable stacking calendar personalised with your chosen details.",
+      "A reusable personalised calendar for your home, desk or as a gift.",
     currency: "NZD",
     images: [],
     categorySlug: "gift-hampers",
@@ -251,11 +250,11 @@ export const products: Product[] = [
   },
   {
     slug: "paint-your-own-plaster-bulk-pack",
-    name: "Bulk Paint-Your-Own Plaster Pack",
+    name: "Paint-Your-Own Plaster Party Pack",
     description:
-      "A creative activity pack for birthday parties, playgroups, classrooms and events. Choose a 30, 40 or 50-piece pack of ready-to-paint plaster figures, with the final price confirmed for your selected quantity and figure mix.",
+      "A creative activity pack for birthday parties, playgroups, classrooms and events. Choose from 30, 40 or 50 ready-to-paint plaster figures, with options to suit your group and occasion.",
     shortDescription:
-      "Bulk ready-to-paint plaster figures in 30, 40 or 50-piece packs.",
+      "Ready-to-paint plaster figures for parties, classrooms and group activities.",
     price: 30,
     priceFrom: true,
     currency: "NZD",
@@ -281,11 +280,11 @@ export const products: Product[] = [
   },
   {
     slug: "small-paint-your-own-plaster-kit",
-    name: "Small Paint-Your-Own Plaster Kit",
+    name: "Paint-Your-Own Plaster Kit",
     description:
-      "A small paint-your-own plaster kit packaged for an easy creative activity or gift. Choose one, two or three plaster figures, with the final contents and price confirmed when you enquire.",
+      "A simple creative kit for painting, playing and displaying. Choose one, two or three plaster figures and enjoy an easy activity at home, as a gift or as part of a celebration.",
     shortDescription:
-      "A small paint-your-own kit with your choice of one to three plaster figures.",
+      "A fun paint-your-own activity with your choice of one to three plaster figures.",
     currency: "NZD",
     images: [],
     categorySlug: "plaster-crafts",
@@ -298,7 +297,7 @@ export const products: Product[] = [
       "plaster figure activity",
       "small craft gift",
     ],
-    active: true,
+    active: false,
     orderOptions: ["1-figure packet", "2-figure packet", "3-figure packet"],
   },
 ];

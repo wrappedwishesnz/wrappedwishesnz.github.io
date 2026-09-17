@@ -21,26 +21,35 @@ export default function About() {
 
           <h2>A little family studio, big on detail.</h2>
           <p>
-            WrappedWishes is a small, family-run home studio in Dunedin, New
-            Zealand, where personalised gifts and keepsakes are created with a
-            whole lot of care.
+            WrappedWishes is my little home studio in Dunedin, New Zealand — a
+            small business built around creativity, family and making things
+            with care.
           </p>
           <p>
-            Most days, you'll find us designing, printing, cutting, assembling
-            and wrapping — usually with our three-year-old daughter not too far
-            away. And while it's mainly the two of us behind WrappedWishes, we
-            do have a couple of hardworking studio partners: our trusty printer
-            and Cricut, which rarely seem to get a day off.
+            As a mum to a three-year-old and a homemaker, I started
+            WrappedWishes as a way to turn my love for crafting and creating
+            into something of my own. Most days, you'll find me designing,
+            printing, cutting, assembling and wrapping orders from our home,
+            with my little one never too far away.
+          </p>
+          <p>
+            WrappedWishes may be my business, but it’s supported by the whole
+            family. My husband helps with the technical side and lends a hand
+            when needed, while our three-year-old is never too far away.
+          </p>
+          <p>
+            Of course, I couldn't do it without my two trusty studio partners
+            either — my printer and Cricut, which rarely seem to get a day off!
           </p>
           <p>
             From personalised shadow boxes and keepsakes to party favours and
             gift boxes, everything is made to order and carefully finished by
-            hand. We love taking an idea, a name or a special moment and turning
+            hand. I love taking an idea, a name or a special moment and turning
             it into something made just for you.
           </p>
           <p>
-            Because behind every WrappedWishes creation is our little family,
-            making something special for yours.
+            Behind every WrappedWishes creation is a little piece of my
+            creativity, a lot of care, and the support of my family.
           </p>
         </Reveal>
       </div>
