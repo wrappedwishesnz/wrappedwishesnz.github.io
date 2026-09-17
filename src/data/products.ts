@@ -96,7 +96,6 @@ export const products: Product[] = [
       "first birthday dinosaur topper",
     ],
     active: true,
-    featured: true,
   },
   {
     slug: "personalised-butterfly-cake-topper",
@@ -118,6 +117,7 @@ export const products: Product[] = [
       "custom name cake topper",
     ],
     active: true,
+    featured: true,
   },
   {
     slug: "personalised-soccer-cake-topper",
@@ -143,6 +143,7 @@ export const products: Product[] = [
       "custom soccer cake topper",
     ],
     active: true,
+    featured: true,
   },
   {
     slug: "personalised-rainbow-cake-topper",

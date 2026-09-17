@@ -21,7 +21,7 @@ export default function FeaturedProducts() {
           </Link>
         </div>
 
-        <ProductList products={featuredProducts.slice(0, 4)} />
+        <ProductList products={featuredProducts.slice(0, 3)} />
       </div>
     </section>
   );
