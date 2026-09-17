@@ -232,11 +232,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      <section className={styles.relatedSection}>
-        <div className={styles.wrap}>
-          <RelatedProducts product={product} />
-        </div>
-      </section>
+      <RelatedProducts product={product} />
 
       <Enquiry productName={product.name} />
     </>

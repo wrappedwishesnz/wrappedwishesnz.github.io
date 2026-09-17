@@ -194,13 +194,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-// new — separate band for related products
-.relatedSection {
-  background: var(--paper-alt);
-  padding: 20px 0 100px;
-
-  @media (max-width: 720px) {
-    padding: 40px 0 70px;
-  }
-}

@@ -18,33 +18,37 @@ export function RelatedProducts({ product }: RelatedProductsProps) {
   if (related.length === 0) return null;
 
   return (
-    <section className={styles.related}>
-      <h2>
-        {product.subProducts?.length
-          ? "Choose a design"
-          : parent
-            ? `More ${parent.name.toLowerCase()}`
-            : "You might also like"}
-      </h2>
-      {product.subProducts?.length ? (
-        <p className={styles.intro}>
-          Pick a featured design below, or tell us about another theme you have
-          in mind.
-        </p>
-      ) : null}
-      <ProductList products={related} />
-      {product.subProducts?.length ? (
-        <div className={styles.customOrder}>
-          <div>
-            <h3>Have another theme in mind?</h3>
-            <p>
-              Share your idea, preferred colours, name and age, and we’ll talk
-              through a custom cake topper with you.
+    <div className={styles.relatedSection}>
+      <div className={styles.wrap}>
+        <section className={styles.related}>
+          <h2>
+            {product.subProducts?.length
+              ? "Choose a design"
+              : parent
+                ? `More ${parent.name.toLowerCase()}`
+                : "You might also like"}
+          </h2>
+          {product.subProducts?.length ? (
+            <p className={styles.intro}>
+              Pick a featured design below, or tell us about another theme you
+              have in mind.
             </p>
-          </div>
-          <Link href="#enquiry">Request a custom design</Link>
-        </div>
-      ) : null}
-    </section>
+          ) : null}
+          <ProductList products={related} />
+          {product.subProducts?.length ? (
+            <div className={styles.customOrder}>
+              <div>
+                <h3>Have another theme in mind?</h3>
+                <p>
+                  Share your idea, preferred colours, name and age, and we’ll
+                  talk through a custom cake topper with you.
+                </p>
+              </div>
+              <Link href="#enquiry">Request a custom design</Link>
+            </div>
+          ) : null}
+        </section>
+      </div>
+    </div>
   );
 }

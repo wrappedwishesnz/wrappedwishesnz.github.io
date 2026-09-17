@@ -1,3 +1,18 @@
+// new — separate band for related products
+.relatedSection {
+  background: var(--paper-alt);
+  padding: 110px 0;
+
+  @media (max-width: 720px) {
+    padding: 40px 0 70px;
+  }
+}
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
 .related {
   h2 {
     font-size: clamp(24px, 3vw, 32px);
