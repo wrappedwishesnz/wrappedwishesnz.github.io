@@ -7,12 +7,12 @@ const pageUrl = `${siteUrl}/cake-toppers`;
 const products = getProductsByCategory("cake-toppers");
 
 export const metadata: Metadata = {
-  title: "Personalised Cake Toppers NZ | Handmade in Dunedin",
+  title: "Cake Toppers Dunedin & NZ",
   description:
     "Shop personalised cake toppers handmade in Dunedin for birthdays across New Zealand. Custom names, ages, colours and themes, with NZ-wide delivery.",
   alternates: { canonical: "/cake-toppers" },
   openGraph: {
-    title: "Personalised Cake Toppers NZ | WrappedWishes",
+    title: "Cake Toppers Dunedin & NZ | WrappedWishes",
     description:
       "Custom birthday cake toppers handmade in Dunedin and delivered throughout New Zealand.",
     url: "/cake-toppers",

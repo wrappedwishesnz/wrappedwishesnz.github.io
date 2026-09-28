@@ -7,12 +7,12 @@ const pageUrl = `${siteUrl}/paint-your-own-plaster-kits`;
 const products = getProductsByCategory("plaster-crafts");
 
 export const metadata: Metadata = {
-  title: "Paint-Your-Own Plaster Kits NZ | Kids' Craft Activities",
+  title: "Plaster Painting Kits Dunedin & NZ",
   description:
     "Shop paint-your-own plaster kits and bulk plaster figures for kids' parties, classrooms and playgroups. Prepared in Dunedin with NZ-wide delivery.",
   alternates: { canonical: "/paint-your-own-plaster-kits" },
   openGraph: {
-    title: "Paint-Your-Own Plaster Kits NZ | WrappedWishes",
+    title: "Plaster Painting Kits Dunedin & NZ | WrappedWishes",
     description:
       "Bulk plaster painting packs for children's parties, classrooms and group craft activities across New Zealand.",
     url: "/paint-your-own-plaster-kits",

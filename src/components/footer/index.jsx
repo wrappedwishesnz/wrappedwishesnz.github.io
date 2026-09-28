@@ -1,12 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import styles from "./footer.module.scss";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrap}>
-        <div className={styles.cta}>
+        <motion.div
+          className={styles.cta}
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.55, ease: [0.22, 0.85, 0.32, 1] }}>
           <div>
             <span className={styles.eyebrow}>Made especially for you</span>
             <h2>Planning a celebration?</h2>
@@ -19,10 +27,18 @@ export default function Footer() {
             Start an enquiry
             <span aria-hidden="true">→</span>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className={styles.grid}>
-          <div className={styles.brand}>
+        <motion.div
+          className={styles.grid}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.08 } },
+          }}>
+          <motion.div className={styles.brand} variants={footerItemVariants}>
             <Link
               href="/"
               className={styles.logo}
@@ -37,25 +53,31 @@ export default function Footer() {
               Handmade with care in Dunedin and delivered throughout New
               Zealand.
             </p>
-          </div>
+          </motion.div>
 
-          <nav className={styles.linkGroup} aria-label="Shop">
+          <motion.nav
+            className={styles.linkGroup}
+            aria-label="Shop"
+            variants={footerItemVariants}>
             <h2>Shop</h2>
             <Link href="/cake-toppers">Personalised cake toppers</Link>
             <Link href="/paint-your-own-plaster-kits">
               Paint-your-own plaster kits
             </Link>
             <Link href="/products">All products</Link>
-          </nav>
+          </motion.nav>
 
-          <nav className={styles.linkGroup} aria-label="Customer help">
+          <motion.nav
+            className={styles.linkGroup}
+            aria-label="Customer help"
+            variants={footerItemVariants}>
             <h2>Here to help</h2>
             <Link href="/faq">Frequently asked questions</Link>
             <Link href="/shipping-returns">Shipping &amp; returns</Link>
             <Link href="/contact">Contact us</Link>
-          </nav>
+          </motion.nav>
 
-          <div className={styles.connect}>
+          <motion.div className={styles.connect} variants={footerItemVariants}>
             <h2>Follow along</h2>
             <p>
               See recent creations, new themes and behind-the-scenes updates.
@@ -74,8 +96,8 @@ export default function Footer() {
               </svg>
               Facebook
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <div className={styles.bottom}>
           <span>© {new Date().getFullYear()} WrappedWishes</span>
@@ -91,3 +113,12 @@ export default function Footer() {
     </footer>
   );
 }
+
+const footerItemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.22, 0.85, 0.32, 1] },
+  },
+};

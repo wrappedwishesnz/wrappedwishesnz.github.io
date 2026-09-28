@@ -10,7 +10,9 @@ export default function Hero() {
 
       <div className={styles.inner}>
         <div className={styles.copy}>
-          <span className={styles.eyebrow}>Handmade in New Zealand</span>
+          <span className={styles.eyebrow}>
+            Handmade in Dunedin, New Zealand
+          </span>
           <h1>
             Personalised gifts for every, <em>occasion.</em>
           </h1>

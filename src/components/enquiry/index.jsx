@@ -5,6 +5,8 @@ import styles from "./enquiry.module.scss";
 import emailjs from "@emailjs/browser";
 
 const PRODUCTS = [
+  "Personalised cake topper",
+  "Paint-your-own plaster kit / bulk pack",
   "Personalised gift",
   "Party bags / favours",
   "Gift box / hamper",
@@ -16,6 +18,8 @@ const initialForm = {
   email: "",
   product: PRODUCTS[0],
   quantity: "",
+  eventDate: "",
+  location: "",
   message: "",
 };
 
@@ -62,7 +66,14 @@ export default function Enquiry({ isContactForm = false, productName }) {
           email: form.email,
           product: form.product,
           quantity: form.quantity,
-          message: form.message,
+          event_date: form.eventDate,
+          delivery_location: form.location,
+          message: [
+            form.message,
+            `Quantity: ${form.quantity || "Not provided"}`,
+            `Event date: ${form.eventDate || "Not provided"}`,
+            `Delivery town/postcode: ${form.location || "Not provided"}`,
+          ].join("\n\n"),
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
@@ -119,12 +130,51 @@ export default function Enquiry({ isContactForm = false, productName }) {
           </div>
         )}
 
+        {!isContactForm && (
+          <>
+            <div className={styles.field}>
+              <label htmlFor="quantity">Quantity</label>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                inputMode="numeric"
+                placeholder="e.g. 1 or 30"
+                value={form.quantity}
+                onChange={handleChange("quantity")}
+              />
+            </div>
+
+            <div className={styles.field}>
+              <label htmlFor="event-date">Date needed</label>
+              <input
+                id="event-date"
+                type="date"
+                value={form.eventDate}
+                onChange={handleChange("eventDate")}
+              />
+            </div>
+
+            <div className={`${styles.field} ${styles.full}`}>
+              <label htmlFor="location">Delivery town or postcode</label>
+              <input
+                id="location"
+                type="text"
+                autoComplete="postal-code"
+                placeholder="e.g. Dunedin 9016"
+                value={form.location}
+                onChange={handleChange("location")}
+              />
+            </div>
+          </>
+        )}
+
         <div className={`${styles.field} ${styles.full}`}>
           <label htmlFor="details">Tell us more</label>
           <textarea
             id="details"
             rows={4}
-            placeholder="Occasion, colours, names, quantities, timeframe..."
+            placeholder="Names, age, occasion, theme, colours and anything else we should know..."
             value={form.message}
             onChange={handleChange("message")}
           />
@@ -136,12 +186,15 @@ export default function Enquiry({ isContactForm = false, productName }) {
       </button>
 
       {status === "success" && (
-        <p className={styles.success}>Message sent successfully ✔</p>
+        <p className={styles.success} role="status">
+          Thanks—your enquiry has been sent. We’ll be in touch to confirm the
+          details, price and current turnaround time.
+        </p>
       )}
 
       {status === "error" && (
-        <p className={styles.error}>
-          Please fill required fields or try again ❌
+        <p className={styles.error} role="alert">
+          Please complete your name, email and message, then try again.
         </p>
       )}
     </form>

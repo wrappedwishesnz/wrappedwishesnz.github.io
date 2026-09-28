@@ -19,6 +19,12 @@ export default function Nav() {
           <li>
             <Link href="/products">Shop</Link>
           </li>
+          <li className={styles.priorityLink}>
+            <Link href="/cake-toppers">Cake toppers</Link>
+          </li>
+          <li className={styles.priorityLink}>
+            <Link href="/paint-your-own-plaster-kits">Plaster kits</Link>
+          </li>
           <li>
             <Link href="/#how">How it works</Link>
           </li>
