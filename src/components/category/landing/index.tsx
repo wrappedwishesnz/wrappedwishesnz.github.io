@@ -36,7 +36,7 @@ export function CategoryLanding({
 }: CategoryLandingProps) {
   return (
     <>
-      <main>
+      <div>
         <section className={styles.hero}>
           <div className={styles.narrow}>
             <span className={styles.eyebrow}>{eyebrow}</span>
@@ -99,7 +99,7 @@ export function CategoryLanding({
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
       <Enquiry />
     </>
