@@ -66,3 +66,12 @@ export function getSubcategoryBySlug(categorySlug: string, subSlug: string) {
     s => s.slug === subSlug
   );
 }
+
+export function getCategoryPath(categorySlug: string) {
+  if (categorySlug === "cake-toppers") return "/cake-toppers";
+  if (categorySlug === "plaster-crafts") {
+    return "/paint-your-own-plaster-kits";
+  }
+
+  return `/products?category=${categorySlug}`;
+}

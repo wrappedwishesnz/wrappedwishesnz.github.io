@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Reveal from "../reveals";
 import { activeCategories } from "@/data";
+import { getCategoryPath } from "@/data/categories";
 import { categoryIcons } from "./icons";
 import styles from "./offerings.module.scss";
 
@@ -45,7 +46,7 @@ export default function Offerings() {
                 viewport={{ once: true, amount: 0.3 }}
                 variants={cardVariants}>
                 <Link
-                  href={`/products?category=${category.slug}`}
+                  href={getCategoryPath(category.slug)}
                   className={styles.link}>
                   <div className={styles.hole} />
                   <span className={styles.num}>

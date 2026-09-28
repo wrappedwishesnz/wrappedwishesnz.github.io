@@ -287,7 +287,11 @@ export const products: Product[] = [
     shortDescription:
       "A fun paint-your-own activity with your choice of one to three plaster figures.",
     currency: "NZD",
-    images: [],
+    images: [
+      "/products/plaster-kit-1.jpg",
+      "/products/plaster-kit-2.jpg",
+      "/products/plaster-kit-3.jpg",
+    ],
     categorySlug: "plaster-crafts",
     availability: "InStock",
     sku: "WW-PC-SMALL-001",
@@ -298,7 +302,7 @@ export const products: Product[] = [
       "plaster figure activity",
       "small craft gift",
     ],
-    active: false,
+    active: true,
     orderOptions: ["1-figure packet", "2-figure packet", "3-figure packet"],
   },
 ];

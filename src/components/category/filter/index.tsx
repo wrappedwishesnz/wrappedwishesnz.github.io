@@ -1,8 +1,10 @@
 "use client";
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { activeCategories } from "@/data";
+import { getCategoryPath } from "@/data/categories";
 
 import styles from "./filter.module.scss";
 
@@ -46,12 +48,12 @@ export function CategoryFilter() {
           onClick={() => updateParams({ category: "all" })}
         />
         {activeCategories.map(category => (
-          <Pill
+          <Link
             key={category.slug}
-            label={category.name}
-            active={activeCategory === category.slug}
-            onClick={() => updateParams({ category: category.slug })}
-          />
+            href={getCategoryPath(category.slug)}
+            className={styles.pill}>
+            <span className={styles.label}>{category.name}</span>
+          </Link>
         ))}
       </div>
 

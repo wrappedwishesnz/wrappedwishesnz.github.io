@@ -12,6 +12,7 @@ import { ProductGallery } from "@/components/products/gallery";
 import { RelatedProducts } from "@/components/products/related";
 import styles from "./product.module.scss";
 import Enquiry from "@/components/enquiry";
+import { getCategoryPath } from "@/data/categories";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -70,6 +71,8 @@ export default async function ProductPage({ params }: Props) {
   const productUrl = `${siteUrl}/product/${slug}`;
   const images = getProductImages(product);
   const formattedPrice = formatProductPrice(product);
+  const categoryPath = getCategoryPath(product.categorySlug);
+  const categoryUrl = `${siteUrl}${categoryPath}`;
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -115,8 +118,8 @@ export default async function ProductPage({ params }: Props) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Products",
-        item: `${siteUrl}/products`,
+        name: getCategoryLabel(product),
+        item: categoryUrl,
       },
       productBreadcrumb,
     ],
@@ -139,9 +142,7 @@ export default async function ProductPage({ params }: Props) {
         />
 
         <div className={styles.wrap}>
-          <Link
-            href={`/products?category=${product.categorySlug}`}
-            className={styles.back}>
+          <Link href={categoryPath} className={styles.back}>
             ← Back to {getCategoryLabel(product)}
           </Link>
 

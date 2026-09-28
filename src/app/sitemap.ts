@@ -9,6 +9,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = [
     { url: siteUrl, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/products`, changeFrequency: "weekly", priority: 0.9 },
+    {
+      url: `${siteUrl}/cake-toppers`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/paint-your-own-plaster-kits`,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     { url: `${siteUrl}/faq`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${siteUrl}/contact`, changeFrequency: "yearly", priority: 0.5 },
     {

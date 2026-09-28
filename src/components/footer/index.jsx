@@ -19,6 +19,10 @@ export default function Footer() {
             </a>
             <p className={styles.tagline}>Gifts as unique as your wishes.</p>
             <div className={styles.links}>
+              <Link href="/cake-toppers">Personalised Cake Toppers</Link>
+              <Link href="/paint-your-own-plaster-kits">
+                Paint-Your-Own Plaster Kits
+              </Link>
               <Link href="/faq">FAQ</Link>
               <Link href="/contact">Contact</Link>
               <Link href="/shipping-returns">Shipping & Returns</Link>
