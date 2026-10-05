@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     locale: "en_NZ",
     images: [
       {
-        url: "/about.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "WrappedWishes personalised gifts and party supplies",
+        alt: "WrappedWishes logo",
       },
     ],
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "Personalised Gifts & Party Supplies NZ | WrappedWishes",
     description:
       "Personalised gifts, birthday party bags, cake toppers and party decorations made with love in New Zealand.",
-    images: ["/about.png"],
+    images: ["/og-image.png"],
   },
 
   robots: {

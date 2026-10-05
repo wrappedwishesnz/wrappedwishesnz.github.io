@@ -256,6 +256,29 @@
   }
 }
 
+@include mobile {
+  .eyebrow,
+  .linkGroup h2,
+  .connect h2 {
+    font-size: 13px;
+  }
+
+  .ctaButton,
+  .linkGroup a,
+  .location,
+  .connect p {
+    font-size: 15px;
+  }
+
+  .facebook {
+    font-size: 14px;
+  }
+
+  .bottom {
+    font-size: 13.5px;
+  }
+}
+
 .backToTop {
   justify-self: end;
 

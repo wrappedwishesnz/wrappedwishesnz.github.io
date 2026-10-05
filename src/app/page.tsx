@@ -19,6 +19,21 @@ export const metadata: Metadata = {
     description:
       "Handmade personalised gifts, party bags, cake toppers and custom party supplies, made in Dunedin and delivered NZ-wide.",
     url: "/",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WrappedWishes logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Personalised Gifts & Party Supplies NZ | WrappedWishes",
+    description:
+      "Handmade personalised gifts, party bags, cake toppers and custom party supplies, made in Dunedin and delivered NZ-wide.",
+    images: ["/og-image.png"],
   },
 };
 export default function Home() {

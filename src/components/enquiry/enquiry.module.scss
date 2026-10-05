@@ -83,6 +83,10 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     color: var(--ink-soft);
+
+    @include mobile {
+      font-size: 14px;
+    }
   }
 
   input,
@@ -99,6 +103,10 @@
     transition:
       border-color 0.3s var(--ease),
       background 0.3s var(--ease);
+
+    @include mobile {
+      font-size: 16px;
+    }
 
     &::placeholder {
       color: rgba(43, 27, 34, 0.38);

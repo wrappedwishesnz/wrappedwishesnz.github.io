@@ -84,3 +84,14 @@
     }
   }
 }
+
+@media (max-width: 720px) {
+  .ctaBtn {
+    font-size: 15px;
+  }
+
+  .footerTagline,
+  .footerSocials a {
+    font-size: 14px;
+  }
+}

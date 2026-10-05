@@ -226,3 +226,49 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 720px) {
+  .category {
+    font-size: 13px;
+  }
+
+  .madeToOrder {
+    font-size: 12px;
+  }
+
+  .options {
+    h2 {
+      font-size: 16px;
+    }
+
+    li {
+      font-size: 14px;
+    }
+  }
+
+  .cta {
+    font-size: 15px;
+  }
+
+  .enquiryHint {
+    font-size: 15px;
+  }
+
+  .trustList li {
+    font-size: 14px;
+  }
+
+  .orderEyebrow {
+    font-size: 13px;
+  }
+
+  .detailCards article {
+    > span {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+}

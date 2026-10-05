@@ -125,3 +125,33 @@
   color: var(--wine);
   transition: transform 0.3s ease;
 }
+
+@media (max-width: 720px) {
+  .category {
+    font-size: 13px;
+  }
+
+  .thumb {
+    font-size: 14px;
+  }
+
+  .badge {
+    font-size: 12px;
+  }
+
+  .blurb {
+    font-size: 15px;
+  }
+
+  .designs {
+    font-size: 13.5px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 15px;
+  }
+}

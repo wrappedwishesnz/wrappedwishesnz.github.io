@@ -60,3 +60,13 @@
   position: relative;
   z-index: 1;
 }
+
+@media (max-width: 720px) {
+  .pill {
+    font-size: 15px;
+
+    &.small {
+      font-size: 14px;
+    }
+  }
+}

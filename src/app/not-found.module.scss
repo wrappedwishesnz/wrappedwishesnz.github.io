@@ -79,3 +79,14 @@
   border: 1px solid rgb(43 27 34 / 18%);
   color: var(--ink);
 }
+
+@media (max-width: 720px) {
+  .eyebrow {
+    font-size: 13px;
+  }
+
+  .primary,
+  .secondary {
+    font-size: 15px;
+  }
+}

@@ -137,3 +137,21 @@
   font-weight: 700;
   font-size: 14.5px;
 }
+
+@media (max-width: 720px) {
+  .eyebrow {
+    font-size: 13px;
+  }
+
+  .link p {
+    font-size: 15px;
+  }
+
+  .num {
+    font-size: 13.5px;
+  }
+
+  .cta {
+    font-size: 15px;
+  }
+}

@@ -64,5 +64,13 @@
     align-items: flex-start;
     flex-direction: column;
     padding: 24px;
+
+    p {
+      font-size: 15px;
+    }
+
+    a {
+      font-size: 15px;
+    }
   }
 }

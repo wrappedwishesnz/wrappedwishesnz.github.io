@@ -49,4 +49,8 @@
   color: var(--wine);
   font-size: 14px;
   font-weight: 700;
+
+  @include mobile {
+    font-size: 15px;
+  }
 }
