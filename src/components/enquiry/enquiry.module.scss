@@ -71,6 +71,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 
   &.full {
     grid-column: 1 / -1;
@@ -91,6 +92,9 @@
   input,
   select,
   textarea {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     font-family: var(--font-body);
     font-size: 15px;
     color: var(--ink);
