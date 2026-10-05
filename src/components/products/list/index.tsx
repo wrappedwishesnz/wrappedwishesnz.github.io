@@ -2,6 +2,7 @@
 import type { Product } from "@/data/products";
 import { ProductCard } from "../card";
 import styles from "./list.module.scss";
+import { Paragraph } from "@/components/typography";
 
 interface ProductListProps {
   products: Product[];
@@ -13,7 +14,7 @@ export function ProductList({
   emptyMessage = "No products to show yet.",
 }: ProductListProps) {
   if (products.length === 0) {
-    return <p className={styles.empty}>{emptyMessage}</p>;
+    return <Paragraph className={styles.empty}>{emptyMessage}</Paragraph>;
   }
 
   return (

@@ -4,7 +4,8 @@ import { AppContextProvider } from "@/store";
 import { Layout } from "@/layout";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import "./globals.css";
+import "./tailwind.css";
+import "@/styles/base.scss";
 
 const nunito = Nunito_Sans({
   subsets: ["latin", "latin-ext"],

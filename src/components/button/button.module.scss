@@ -1,0 +1,47 @@
+@use "../../styles/mixins" as *;
+
+.button {
+  @include btn;
+}
+
+.primary {
+  background: var(--wine);
+  color: var(--paper);
+  box-shadow: 0 10px 24px -10px rgb(var(--wine-rgb) / 55%);
+
+  &:hover {
+    background: var(--wine-deep);
+    box-shadow: 0 14px 28px -10px rgb(var(--wine-rgb) / 60%);
+    transform: translateY(-2px);
+  }
+}
+
+.secondary {
+  background: transparent;
+  border-color: rgb(var(--ink-rgb) / 22%);
+  color: var(--ink);
+
+  &:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+}
+
+.light {
+  background: var(--paper);
+  color: var(--wine-deep);
+
+  &:hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+}
+
+.small {
+  padding: 11px 22px;
+  font-size: 13.5px;
+}
+
+.fullWidth {
+  width: 100%;
+}

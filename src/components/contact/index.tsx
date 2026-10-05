@@ -1,21 +1,24 @@
 import Enquiry from "../enquiry";
 import Reveal from "../reveals";
 import styles from "./contact.module.scss";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 export default function ContactPage() {
   return (
     <div className={styles.page}>
       <div className={styles.inner}>
         <Reveal as="div" className={styles.copy}>
-          <span className={styles.eyebrow}>Contact Us</span>
+          <Eyebrow className={styles.eyebrow}>Contact Us</Eyebrow>
 
-          <h1>We'd love to hear from you.</h1>
+          <Title as="h1" variant="page">
+            We'd love to hear from you.
+          </Title>
 
-          <p>
+          <Paragraph variant="lead">
             Have a question about an order, personalisation or something you'd
             love us to create? Send us a message and we'll get back to you as
             soon as we can.
-          </p>
+          </Paragraph>
 
           <div className={styles.details}>
             <div>

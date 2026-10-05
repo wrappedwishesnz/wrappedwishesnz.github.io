@@ -53,7 +53,6 @@
 }
 
 .eyebrow {
-  @include eyebrow;
   margin-bottom: 14px;
 }
 
@@ -121,8 +120,6 @@
 }
 
 .submit {
-  @include btn-primary;
-  width: 100%;
   margin-top: 6px;
   padding: 15px 26px;
   font-size: 15px;
@@ -130,14 +127,14 @@
 
 .success {
   margin-top: 15px;
-  color: green;
+  color: var(--success);
   font-size: 14px;
   text-align: center;
 }
 
 .error {
   margin-top: 15px;
-  color: red;
+  color: var(--error);
   font-size: 14px;
   text-align: center;
 }

@@ -7,6 +7,8 @@ import { activeCategories } from "@/data";
 import { getCategoryPath } from "@/data/categories";
 import { categoryIcons } from "./icons";
 import styles from "./offerings.module.scss";
+import { Button } from "../button";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -22,15 +24,15 @@ export default function Offerings() {
     <section className={styles.offerings} id="offerings">
       <div className={styles.wrap}>
         <Reveal as="div" className={styles.sectionHead}>
-          <span className={styles.eyebrow}>Shop by category</span>
-          <h2>Find something for every occasion.</h2>
-          <p>
+          <Eyebrow className={styles.eyebrow}>Shop by category</Eyebrow>
+          <Title>Find something for every occasion.</Title>
+          <Paragraph>
             From heartfelt keepsakes to whimsical party extras — every piece is
             made by hand, just for you.
-          </p>
-          <Link href="/products" className={styles.cta}>
+          </Paragraph>
+          <Button href="/products" className={styles.cta}>
             View products
-          </Link>
+          </Button>
         </Reveal>
 
         <div className={styles.grid}>
@@ -53,8 +55,10 @@ export default function Offerings() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {Icon && <Icon className={styles.icon} strokeWidth={1.6} />}
-                  <h3>{category.name}</h3>
-                  <p>{category.description}</p>
+                  <Title as="h3" variant="card">
+                    {category.name}
+                  </Title>
+                  <Paragraph>{category.description}</Paragraph>
                 </Link>
               </motion.div>
             );

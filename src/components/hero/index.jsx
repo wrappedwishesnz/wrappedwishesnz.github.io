@@ -1,4 +1,6 @@
 import styles from "./hero.module.scss";
+import { Button } from "../button";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 export default function Hero() {
   return (
@@ -10,26 +12,22 @@ export default function Hero() {
 
       <div className={styles.inner}>
         <div className={styles.copy}>
-          <span className={styles.eyebrow}>
+          <Eyebrow className={styles.eyebrow}>
             Handmade in Dunedin, New Zealand
-          </span>
-          <h1>
+          </Eyebrow>
+          <Title as="h1" variant="page">
             Personalised gifts for every, <em>occasion.</em>
-          </h1>
-          <p>
+          </Title>
+          <Paragraph variant="lead">
             From custom cake toppers and party bags to thoughtful gift packs,
             every WrappedWishes creation is made to order and delivered across
             New Zealand.
-          </p>
+          </Paragraph>
           <div className={styles.ctas}>
-            <a
-              href="/products"
-              className={`${styles.btn} ${styles.btnPrimary}`}>
-              Shop personalised products
-            </a>
-            <a href="#enquiry" className={`${styles.btn} ${styles.btnGhost}`}>
+            <Button href="/products">Shop personalised products</Button>
+            <Button href="#enquiry" variant="secondary">
               Request a custom design
-            </a>
+            </Button>
           </div>
         </div>
 

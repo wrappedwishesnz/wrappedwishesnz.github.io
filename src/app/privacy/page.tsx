@@ -1,4 +1,5 @@
 import LegalPage from "@/components/legal";
+import { Paragraph } from "@/components/typography";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,66 +20,66 @@ export default function PrivacyPage() {
           title: "Information we collect",
           content: (
             <>
-              <p>
+              <Paragraph>
                 When you place an order or contact us, we may collect
                 information such as your name, email address, delivery address,
                 phone number and details required to personalise your order.
-              </p>
-              <p>
+              </Paragraph>
+              <Paragraph>
                 Our website may also collect technical information such as
                 browser, device and website usage information.
-              </p>
+              </Paragraph>
             </>
           ),
         },
         {
           title: "How we use your information",
           content: (
-            <p>
+            <Paragraph>
               We use your information to process and personalise orders, arrange
               delivery, respond to enquiries, provide customer support and
               operate and improve our website.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Payments",
           content: (
-            <p>
+            <Paragraph>
               Payments may be processed by third-party payment providers. We do
               not intend to directly store your full payment card details on our
               website.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Sharing information",
           content: (
-            <p>
+            <Paragraph>
               We may share information with service providers where necessary to
               operate our business, such as payment processors, website
               providers and delivery companies. We do not sell your personal
               information.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Cookies and analytics",
           content: (
-            <p>
+            <Paragraph>
               Our website may use cookies or similar technologies to provide
               website functionality and understand how visitors use the site.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Contact us",
           content: (
-            <p>
+            <Paragraph>
               If you have a question about your personal information or this
               privacy policy, please contact WrappedWishes through our Contact
               page.
-            </p>
+            </Paragraph>
           ),
         },
       ]}

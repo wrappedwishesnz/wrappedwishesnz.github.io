@@ -1,4 +1,4 @@
-@use '../../styles/mixins' as *;
+@use "../../styles/mixins" as *;
 
 .nav {
   position: fixed;
@@ -63,7 +63,7 @@
     padding-bottom: 4px;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       bottom: 0;

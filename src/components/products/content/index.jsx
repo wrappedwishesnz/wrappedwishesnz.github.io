@@ -7,13 +7,16 @@ import { activeProducts } from "@/data/products";
 import { getCategoryBySlug, getSubcategoryBySlug } from "@/data/categories";
 import styles from "./content.module.scss";
 import Enquiry from "@/components/enquiry";
+import { Eyebrow, Paragraph, Title } from "@/components/typography";
 
 export function FallbackContent() {
   return (
     <section className={styles.page}>
       <div className={styles.wrap}>
         <div className={styles.head}>
-          <h1>Shop</h1>
+          <Title as="h1" variant="page">
+            Shop
+          </Title>
         </div>
       </div>
     </section>
@@ -50,9 +53,11 @@ export function ProductsContent() {
       <section className={styles.page}>
         <div className={styles.wrap}>
           <div className={styles.head}>
-            <span className={styles.eyebrow}>Shop</span>
-            <h1>{heading}</h1>
-            <p>{description}</p>
+            <Eyebrow className={styles.eyebrow}>Shop</Eyebrow>
+            <Title as="h1" variant="page">
+              {heading}
+            </Title>
+            <Paragraph variant="lead">{description}</Paragraph>
           </div>
         </div>
       </section>

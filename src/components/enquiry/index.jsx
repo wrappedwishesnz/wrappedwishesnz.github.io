@@ -3,6 +3,8 @@ import { useState } from "react";
 import Reveal from "../reveals";
 import styles from "./enquiry.module.scss";
 import emailjs from "@emailjs/browser";
+import { Button } from "../button";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 const PRODUCTS = [
   "Personalised cake topper",
@@ -181,21 +183,25 @@ export default function Enquiry({ isContactForm = false, productName }) {
         </div>
       </div>
 
-      <button type="submit" disabled={loading} className={styles.submit}>
+      <Button
+        type="submit"
+        disabled={loading}
+        fullWidth
+        className={styles.submit}>
         {loading ? "Sending..." : "Submit Enquiry"}
-      </button>
+      </Button>
 
       {status === "success" && (
-        <p className={styles.success} role="status">
+        <Paragraph className={styles.success} role="status" variant="small">
           Thanks—your enquiry has been sent. We’ll be in touch to confirm the
           details, price and current turnaround time.
-        </p>
+        </Paragraph>
       )}
 
       {status === "error" && (
-        <p className={styles.error} role="alert">
+        <Paragraph className={styles.error} role="alert" variant="small">
           Please complete your name, email and message, then try again.
-        </p>
+        </Paragraph>
       )}
     </form>
   );
@@ -206,13 +212,13 @@ export default function Enquiry({ isContactForm = false, productName }) {
     <section className={styles.enquiry} id="enquiry">
       <div className={styles.wrap}>
         <Reveal as="div" className={styles.card}>
-          <span className={styles.eyebrow}>Order enquiry</span>
-          <h2>Let&apos;s create something.</h2>
-          <p>
+          <Eyebrow className={styles.eyebrow}>Order enquiry</Eyebrow>
+          <Title>Let&apos;s create something.</Title>
+          <Paragraph>
             Share the occasion, names, colours, quantity and date you need it.
             We&apos;ll confirm the design, price and current turnaround time
             with you.
-          </p>
+          </Paragraph>
           {formContent}
         </Reveal>
       </div>

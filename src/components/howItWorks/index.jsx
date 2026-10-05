@@ -1,4 +1,5 @@
 import Reveal from "../reveals";
+import { Eyebrow, Paragraph, Title } from "../typography";
 import { steps } from "../../data/content";
 import styles from "./how.module.scss";
 
@@ -7,16 +8,18 @@ export default function HowItWorks() {
     <section id="how">
       <div className={styles.wrap}>
         <Reveal as="div" className={styles.sectionHead}>
-          <span className={styles.eyebrow}>How it works</span>
-          <h2>Simple, personal, stress-free.</h2>
+          <Eyebrow className={styles.eyebrow}>How it works</Eyebrow>
+          <Title>Simple, personal, stress-free.</Title>
         </Reveal>
 
         <div className={styles.steps}>
           {steps.map(step => (
             <Reveal as="div" className={styles.step} key={step.num}>
               <div className={styles.numRing}>{step.num}</div>
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
+              <Title as="h3" variant="card">
+                {step.title}
+              </Title>
+              <Paragraph>{step.desc}</Paragraph>
             </Reveal>
           ))}
         </div>

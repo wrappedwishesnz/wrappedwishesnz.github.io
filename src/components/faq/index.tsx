@@ -1,5 +1,6 @@
 import Reveal from "../reveals";
 import styles from "./faq.module.scss";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 const faqs = [
   {
@@ -55,19 +56,21 @@ export default function FAQPage() {
       />
       <div className={styles.inner}>
         <Reveal as="div" className={styles.heading}>
-          <span className={styles.eyebrow}>FAQ</span>
-          <h1>A few things you might be wondering.</h1>
-          <p>
+          <Eyebrow className={styles.eyebrow}>FAQ</Eyebrow>
+          <Title as="h1" variant="page">
+            A few things you might be wondering.
+          </Title>
+          <Paragraph variant="lead">
             From personalisation to delivery, here are answers to some of our
             most common questions.
-          </p>
+          </Paragraph>
         </Reveal>
 
         <div className={styles.faqs}>
           {faqs.map(faq => (
             <Reveal as="div" className={styles.item} key={faq.question}>
-              <h2>{faq.question}</h2>
-              <p>{faq.answer}</p>
+              <Title variant="card">{faq.question}</Title>
+              <Paragraph>{faq.answer}</Paragraph>
             </Reveal>
           ))}
         </div>

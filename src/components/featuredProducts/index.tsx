@@ -2,6 +2,7 @@ import Link from "next/link";
 import { featuredProducts } from "@/data/products";
 import { ProductList } from "@/components/products/list";
 import styles from "./featured.module.scss";
+import { Eyebrow, Paragraph, Title } from "@/components/typography";
 
 export default function FeaturedProducts() {
   return (
@@ -9,12 +10,12 @@ export default function FeaturedProducts() {
       <div className={styles.wrap}>
         <div className={styles.heading}>
           <div>
-            <span className={styles.eyebrow}>Popular picks</span>
-            <h2 id="featured-heading">Made personal, just for them.</h2>
-            <p>
+            <Eyebrow className={styles.eyebrow}>Popular picks</Eyebrow>
+            <Title id="featured-heading">Made personal, just for them.</Title>
+            <Paragraph>
               Explore handmade favourites for birthdays, parties and thoughtful
               moments. Every piece can be tailored through a personal order.
-            </p>
+            </Paragraph>
           </div>
           <Link href="/products" className={styles.shopLink}>
             Shop all products →

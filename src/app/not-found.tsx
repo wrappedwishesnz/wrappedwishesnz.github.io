@@ -1,6 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import styles from "./not-found.module.scss";
+import { Button } from "@/components/button";
+import { Eyebrow, Paragraph, Title } from "@/components/typography";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -12,19 +13,24 @@ export default function NotFound() {
     <section className={styles.page}>
       <div className={styles.card}>
         <span className={styles.code}>404</span>
-        <span className={styles.eyebrow}>This wish wandered off</span>
-        <h1>We couldn’t find that page.</h1>
-        <p>
+        <Eyebrow className={styles.eyebrow}>This wish wandered off</Eyebrow>
+        <Title as="h1" variant="page">
+          We couldn’t find that page.
+        </Title>
+        <Paragraph variant="lead">
           The page may have moved, but there are still plenty of personalised
           creations to discover.
-        </p>
+        </Paragraph>
         <div className={styles.actions}>
-          <Link href="/products" className={styles.primary}>
+          <Button href="/products" className={styles.primary}>
             Browse all products
-          </Link>
-          <Link href="/cake-toppers" className={styles.secondary}>
+          </Button>
+          <Button
+            href="/cake-toppers"
+            variant="secondary"
+            className={styles.secondary}>
             Shop cake toppers
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

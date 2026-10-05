@@ -1,4 +1,5 @@
 import LegalPage from "@/components/legal";
+import { Paragraph } from "@/components/typography";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -19,49 +20,49 @@ export default function ShippingReturnsPage() {
         {
           title: "Processing times",
           content: (
-            <p>
+            <Paragraph>
               As our products are made to order, please allow time for us to
               create your item before it is dispatched. Current processing times
               may vary depending on the product and order volume.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Shipping",
           content: (
-            <p>
+            <Paragraph>
               We ship throughout New Zealand. Delivery times begin once your
               order has been completed and handed to the courier.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Personalised items",
           content: (
-            <p>
+            <Paragraph>
               Please carefully check all names, dates and other personalised
               details before placing your order. We create your item using the
               information you provide.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Returns",
           content: (
-            <p>
+            <Paragraph>
               Because personalised products are created specifically for you, we
               generally cannot accept returns or exchanges for a change of mind.
-            </p>
+            </Paragraph>
           ),
         },
         {
           title: "Damaged or incorrect orders",
           content: (
-            <p>
+            <Paragraph>
               If your item arrives damaged or we've made an error with your
               order, please contact us as soon as possible with your order
               details and photos of the issue so we can help.
-            </p>
+            </Paragraph>
           ),
         },
       ]}

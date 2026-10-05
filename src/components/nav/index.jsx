@@ -4,6 +4,7 @@ import useStickyNav from "@/hooks/useStickyNav";
 import styles from "./navs.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../button";
 import { Menu, X } from "lucide-react";
 
 export default function Nav() {
@@ -64,11 +65,9 @@ export default function Nav() {
           </li>
         </ul>
 
-        <Link
-          href="/#enquiry"
-          className={`${styles.btn} ${styles.btnPrimary} ${styles.btnSmall} ${styles.desktopCta}`}>
+        <Button href="/#enquiry" size="small" className={styles.desktopCta}>
           Enquire
-        </Link>
+        </Button>
 
         <button
           ref={menuButtonRef}
@@ -110,12 +109,12 @@ export default function Nav() {
           <Link href="/contact" onClick={closeMenu}>
             Contact
           </Link>
-          <Link
+          <Button
             href="/#enquiry"
             className={styles.mobileCta}
             onClick={closeMenu}>
             Enquire now
-          </Link>
+          </Button>
         </nav>
       )}
     </header>

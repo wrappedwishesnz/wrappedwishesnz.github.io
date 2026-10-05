@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./footer.module.scss";
+import { Button } from "../button";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 export default function Footer() {
   return (
@@ -16,17 +18,19 @@ export default function Footer() {
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.55, ease: [0.22, 0.85, 0.32, 1] }}>
           <div>
-            <span className={styles.eyebrow}>Made especially for you</span>
-            <h2>Planning a celebration?</h2>
-            <p>
+            <Eyebrow className={styles.eyebrow}>
+              Made especially for you
+            </Eyebrow>
+            <Title>Planning a celebration?</Title>
+            <Paragraph>
               Tell us your idea, colours and date. We’ll help you create
               something personal.
-            </p>
+            </Paragraph>
           </div>
-          <Link href="/#enquiry" className={styles.ctaButton}>
+          <Button href="/#enquiry" variant="light" className={styles.ctaButton}>
             Start an enquiry
             <span aria-hidden="true">→</span>
-          </Link>
+          </Button>
         </motion.div>
 
         <motion.div
@@ -48,18 +52,20 @@ export default function Footer() {
               </span>
               WrappedWishes
             </Link>
-            <p className={styles.tagline}>Gifts as unique as your wishes.</p>
-            <p className={styles.location}>
+            <Paragraph className={styles.tagline}>
+              Gifts as unique as your wishes.
+            </Paragraph>
+            <Paragraph className={styles.location} variant="small">
               Handmade with care in Dunedin and delivered throughout New
               Zealand.
-            </p>
+            </Paragraph>
           </motion.div>
 
           <motion.nav
             className={styles.linkGroup}
             aria-label="Shop"
             variants={footerItemVariants}>
-            <h2>Shop</h2>
+            <Title>Shop</Title>
             <Link href="/cake-toppers">Personalised cake toppers</Link>
             <Link href="/paint-your-own-plaster-kits">
               Paint-your-own plaster kits
@@ -71,17 +77,17 @@ export default function Footer() {
             className={styles.linkGroup}
             aria-label="Customer help"
             variants={footerItemVariants}>
-            <h2>Here to help</h2>
+            <Title>Here to help</Title>
             <Link href="/faq">Frequently asked questions</Link>
             <Link href="/shipping-returns">Shipping &amp; returns</Link>
             <Link href="/contact">Contact us</Link>
           </motion.nav>
 
           <motion.div className={styles.connect} variants={footerItemVariants}>
-            <h2>Follow along</h2>
-            <p>
+            <Title>Follow along</Title>
+            <Paragraph>
               See recent creations, new themes and behind-the-scenes updates.
-            </p>
+            </Paragraph>
             <a
               href="https://www.facebook.com/WrappedWishesNZ/"
               className={styles.facebook}

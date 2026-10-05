@@ -1,11 +1,4 @@
-@import "tailwindcss";
-
-@theme inline {
-  --color-brand: var(--bg-band);
-  --color-linen: var(--bg-page);
-  --font-fraunces: var(--font-fraunces), sans-serif;
-  --font-nunito: var(--font-nunito), sans-serif;
-}
+@use "palette" as palette;
 
 *,
 *::before,
@@ -16,22 +9,31 @@
 }
 
 :root {
-  --paper: #fbf5ef;
-  --paper-alt: #f4e9de;
-  --paper-deep: #efdfd0;
-  --ink: #2b1b22;
-  --ink-soft: #5a4650;
-  --wine: #7a2e4a;
-  --wine-deep: #5c2038;
-  --rose: #d98fa0;
-  --rose-soft: #efcfd6;
-  --sage: #8a9a7e;
-  --sage-deep: #6e7f64;
-  --gold: #c9a253;
-  --gold-soft: #e4cfa0;
+  --paper: #{palette.$paper};
+  --paper-alt: #{palette.$paper-alt};
+  --paper-deep: #{palette.$paper-deep};
+  --ink: #{palette.$ink};
+  --ink-soft: #{palette.$ink-soft};
+  --wine: #{palette.$wine};
+  --wine-deep: #{palette.$wine-deep};
+  --rose: #{palette.$rose};
+  --rose-soft: #{palette.$rose-soft};
+  --sage: #{palette.$sage};
+  --sage-deep: #{palette.$sage-deep};
+  --gold: #{palette.$gold};
+  --gold-soft: #{palette.$gold-soft};
+  --success: #{palette.$success};
+  --error: #{palette.$error};
 
-  --shadow: 0 20px 50px -20px rgba(43, 27, 34, 0.25);
-  --shadow-soft: 0 10px 30px -15px rgba(43, 27, 34, 0.18);
+  --ink-rgb: 43 27 34;
+  --paper-rgb: 251 245 239;
+  --wine-rgb: 122 46 74;
+  --gold-rgb: 201 162 83;
+  --white-rgb: 255 255 255;
+  --black-rgb: 0 0 0;
+
+  --shadow: 0 20px 50px -20px rgb(var(--ink-rgb) / 25%);
+  --shadow-soft: 0 10px 30px -15px rgb(var(--ink-rgb) / 18%);
   --radius: 22px;
   --ease: cubic-bezier(0.22, 0.85, 0.32, 1);
 

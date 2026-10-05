@@ -11,6 +11,7 @@ import {
   type Product,
 } from "@/data/products";
 import styles from "./card.module.scss";
+import { Paragraph, Title } from "@/components/typography";
 
 interface ProductCardProps {
   product: Product;
@@ -43,8 +44,12 @@ export function ProductCard({ product }: ProductCardProps) {
           )}
         </div>
 
-        <h3 className={styles.title}>{product.name}</h3>
-        <p className={styles.blurb}>{product.shortDescription}</p>
+        <Title as="h3" variant="card" className={styles.title}>
+          {product.name}
+        </Title>
+        <Paragraph className={styles.blurb} variant="small">
+          {product.shortDescription}
+        </Paragraph>
 
         <div className={styles.meta}>
           <span className={styles.price}>{formattedPrice}</span>

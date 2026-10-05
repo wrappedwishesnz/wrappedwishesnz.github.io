@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand: var(--wine);
+  --color-linen: var(--paper);
+  --font-fraunces: var(--font-fraunces), sans-serif;
+  --font-nunito: var(--font-nunito), sans-serif;
+}

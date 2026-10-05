@@ -6,12 +6,12 @@
   background:
     radial-gradient(
       ellipse 60% 50% at 82% 12%,
-      rgba(217, 143, 160, 0.16),
+      rgb(217 143 160 / 16%),
       transparent 60%
     ),
     radial-gradient(
       ellipse 50% 40% at 8% 85%,
-      rgba(201, 162, 83, 0.12),
+      rgb(var(--gold-rgb) / 12%),
       transparent 60%
     ),
     var(--paper);
@@ -54,22 +54,10 @@
   }
 }
 
-.eyebrow {
-  @include eyebrow;
-}
-
 .ctas {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-}
-
-.btnPrimary {
-  @include btn-primary;
-}
-
-.btnGhost {
-  @include btn-ghost;
 }
 
 .art {

@@ -4,6 +4,8 @@ import { ProductList } from "@/components/products/list";
 import Enquiry from "@/components/enquiry";
 import Reveal from "@/components/reveals";
 import styles from "./landing.module.scss";
+import { Button } from "@/components/button";
+import { Eyebrow, Paragraph, Title } from "@/components/typography";
 
 type Faq = {
   question: string;
@@ -40,12 +42,14 @@ export function CategoryLanding({
       <div>
         <section className={styles.hero}>
           <Reveal as="div" className={styles.narrow}>
-            <span className={styles.eyebrow}>{eyebrow}</span>
-            <h1>{title}</h1>
-            <p>{introduction}</p>
-            <a href="#products" className={styles.cta}>
+            <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow>
+            <Title as="h1" variant="page">
+              {title}
+            </Title>
+            <Paragraph variant="lead">{introduction}</Paragraph>
+            <Button href="#products" className={styles.cta}>
               Browse the collection
-            </a>
+            </Button>
           </Reveal>
         </section>
 
@@ -55,8 +59,8 @@ export function CategoryLanding({
           aria-labelledby="products-heading">
           <div className={styles.wrap}>
             <Reveal as="div" className={styles.sectionHeading}>
-              <h2 id="products-heading">{sectionTitle}</h2>
-              <p>{sectionCopy}</p>
+              <Title id="products-heading">{sectionTitle}</Title>
+              <Paragraph>{sectionCopy}</Paragraph>
             </Reveal>
             <ProductList products={products} />
           </div>
@@ -65,11 +69,11 @@ export function CategoryLanding({
         <section className={styles.information}>
           <div className={styles.wrap}>
             <Reveal as="div" className={styles.localBlock}>
-              <span className={styles.eyebrow}>
+              <Eyebrow className={styles.eyebrow}>
                 Dunedin made · NZ delivered
-              </span>
-              <h2>{localTitle}</h2>
-              <p>{localCopy}</p>
+              </Eyebrow>
+              <Title>{localTitle}</Title>
+              <Paragraph>{localCopy}</Paragraph>
               <Link href="/shipping-returns">
                 Read about shipping and returns
               </Link>
@@ -78,8 +82,8 @@ export function CategoryLanding({
             <div className={styles.detailGrid}>
               {details.map(detail => (
                 <Reveal as="article" key={detail.title}>
-                  <h2>{detail.title}</h2>
-                  <p>{detail.copy}</p>
+                  <Title variant="card">{detail.title}</Title>
+                  <Paragraph>{detail.copy}</Paragraph>
                 </Reveal>
               ))}
             </div>
@@ -88,13 +92,15 @@ export function CategoryLanding({
 
         <section className={styles.faq} aria-labelledby="faq-heading">
           <div className={styles.narrow}>
-            <span className={styles.eyebrow}>Helpful details</span>
-            <h2 id="faq-heading">Frequently asked questions</h2>
+            <Eyebrow className={styles.eyebrow}>Helpful details</Eyebrow>
+            <Title id="faq-heading">Frequently asked questions</Title>
             <div className={styles.faqList}>
               {faqs.map(faq => (
                 <Reveal as="article" key={faq.question}>
-                  <h3>{faq.question}</h3>
-                  <p>{faq.answer}</p>
+                  <Title as="h3" variant="card">
+                    {faq.question}
+                  </Title>
+                  <Paragraph>{faq.answer}</Paragraph>
                 </Reveal>
               ))}
             </div>

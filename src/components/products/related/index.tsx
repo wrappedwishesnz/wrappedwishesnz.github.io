@@ -1,6 +1,7 @@
 import { getRelatedProducts, type Product } from "@/data/products";
 import { ProductList } from "../list";
 import styles from "./related.module.scss";
+import { Title } from "@/components/typography";
 
 interface RelatedProductsProps {
   product: Product;
@@ -15,7 +16,7 @@ export function RelatedProducts({ product }: RelatedProductsProps) {
     <div className={styles.relatedSection}>
       <div className={styles.wrap}>
         <section className={styles.related}>
-          <h2>You might also like</h2>
+          <Title>You might also like</Title>
           <ProductList products={related} />
         </section>
       </div>

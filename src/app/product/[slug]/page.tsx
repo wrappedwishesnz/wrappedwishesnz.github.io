@@ -12,6 +12,8 @@ import { ProductGallery } from "@/components/products/gallery";
 import { RelatedProducts } from "@/components/products/related";
 import styles from "./product.module.scss";
 import Enquiry from "@/components/enquiry";
+import { Button } from "@/components/button";
+import { Eyebrow, Paragraph, Title } from "@/components/typography";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -160,18 +162,22 @@ export default async function ProductPage({ params }: Props) {
             <ProductGallery images={images} alt={product.name} />
 
             <div className={styles.info}>
-              <span className={styles.category}>
+              <Eyebrow className={styles.category}>
                 {getCategoryLabel(product)}
-              </span>
-              <h1>{product.name}</h1>
+              </Eyebrow>
+              <Title as="h1" variant="page">
+                {product.name}
+              </Title>
               <div className={styles.purchaseMeta}>
-                <p className={styles.price}>{formattedPrice}</p>
+                <Paragraph className={styles.price}>{formattedPrice}</Paragraph>
                 <span className={styles.madeToOrder}>Made to order</span>
               </div>
-              <p className={styles.description}>{product.description}</p>
+              <Paragraph className={styles.description} variant="lead">
+                {product.description}
+              </Paragraph>
               {product.orderOptions?.length ? (
                 <div className={styles.options}>
-                  <h2>Available order sizes</h2>
+                  <Title variant="card">Available order sizes</Title>
                   <ul>
                     {product.orderOptions.map(option => (
                       <li key={option}>{option}</li>
@@ -179,13 +185,13 @@ export default async function ProductPage({ params }: Props) {
                   </ul>
                 </div>
               ) : null}
-              <Link href={"#enquiry"} className={styles.cta}>
+              <Button href="#enquiry" className={styles.cta}>
                 Enquire about this piece
-              </Link>
-              <p className={styles.enquiryHint}>
+              </Button>
+              <Paragraph className={styles.enquiryHint} variant="small">
                 Tell us the occasion, wording, colours, quantity and date. We’ll
                 confirm the design, final price and turnaround time with you.
-              </p>
+              </Paragraph>
 
               <ul className={styles.trustList} aria-label="Product benefits">
                 <li>Handmade in Dunedin</li>
@@ -200,33 +206,39 @@ export default async function ProductPage({ params }: Props) {
       <section className={styles.orderDetails} aria-labelledby="order-heading">
         <div className={styles.wrap}>
           <div className={styles.orderHeading}>
-            <span className={styles.orderEyebrow}>Your custom order</span>
-            <h2 id="order-heading">Made for your celebration.</h2>
+            <Eyebrow className={styles.orderEyebrow}>Your custom order</Eyebrow>
+            <Title id="order-heading">Made for your celebration.</Title>
           </div>
           <div className={styles.detailCards}>
             <article>
               <span>01</span>
-              <h3>Make it yours</h3>
-              <p>
+              <Title as="h3" variant="card">
+                Make it yours
+              </Title>
+              <Paragraph variant="small">
                 Share the occasion and the names, wording, colours or theme you
                 would like us to work with.
-              </p>
+              </Paragraph>
             </article>
             <article>
               <span>02</span>
-              <h3>Confirm the details</h3>
-              <p>
+              <Title as="h3" variant="card">
+                Confirm the details
+              </Title>
+              <Paragraph variant="small">
                 We’ll talk through what is possible and confirm the design,
                 price and current turnaround time before proceeding.
-              </p>
+              </Paragraph>
             </article>
             <article>
               <span>03</span>
-              <h3>Made and delivered</h3>
-              <p>
+              <Title as="h3" variant="card">
+                Made and delivered
+              </Title>
+              <Paragraph variant="small">
                 Your order is carefully handmade in our Dunedin studio and can
                 be delivered throughout New Zealand.
-              </p>
+              </Paragraph>
             </article>
           </div>
         </div>

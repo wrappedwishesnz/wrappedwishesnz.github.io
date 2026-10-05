@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Reveal from "../reveals";
 import styles from "./legal.module.scss";
+import { Eyebrow, Paragraph, Title } from "../typography";
 
 type Section = {
   title: string;
@@ -19,15 +20,17 @@ export default function LegalPage({ eyebrow, title, intro, sections }: Props) {
     <div className={styles.page}>
       <div className={styles.inner}>
         <Reveal as="header" className={styles.heading}>
-          <span className={styles.eyebrow}>{eyebrow}</span>
-          <h1>{title}</h1>
-          <p>{intro}</p>
+          <Eyebrow className={styles.eyebrow}>{eyebrow}</Eyebrow>
+          <Title as="h1" variant="page">
+            {title}
+          </Title>
+          <Paragraph variant="lead">{intro}</Paragraph>
         </Reveal>
 
         <div className={styles.content}>
           {sections.map(section => (
             <Reveal as="section" className={styles.section} key={section.title}>
-              <h2>{section.title}</h2>
+              <Title variant="card">{section.title}</Title>
               <div>{section.content}</div>
             </Reveal>
           ))}

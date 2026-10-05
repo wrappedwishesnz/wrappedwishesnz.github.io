@@ -33,21 +33,11 @@
 }
 
 .eyebrow {
-  color: var(--wine);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  justify-content: center;
 }
 
 .cta {
-  background: var(--wine);
-  border-radius: 999px;
-  color: white;
-  display: inline-flex;
-  font-weight: 700;
   margin-top: 30px;
-  padding: 13px 24px;
 }
 
 .products {
