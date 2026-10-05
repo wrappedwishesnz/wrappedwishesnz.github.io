@@ -10,6 +10,7 @@ export type Category = {
   name: string;
   description: string;
   image: string;
+  detailsPath?: string;
   subcategories: Subcategory[];
 };
 export const categories: Category[] = [
@@ -27,6 +28,7 @@ export const categories: Category[] = [
     description:
       "Personalised cake toppers made to match your celebration, theme and special moment.",
     image: "/categories/cake-toppers.jpg",
+    detailsPath: "/cake-toppers",
     subcategories: [] as Subcategory[],
   },
   {
@@ -51,6 +53,7 @@ export const categories: Category[] = [
     description:
       "Creative paint-your-own activities for parties, playtime, gifts and little artists.",
     image: "/categories/plaster-crafts.jpg",
+    detailsPath: "/paint-your-own-plaster-kits",
     subcategories: [] as Subcategory[],
   },
 ];
@@ -68,10 +71,12 @@ export function getSubcategoryBySlug(categorySlug: string, subSlug: string) {
 }
 
 export function getCategoryPath(categorySlug: string) {
-  if (categorySlug === "cake-toppers") return "/cake-toppers";
-  if (categorySlug === "plaster-crafts") {
-    return "/paint-your-own-plaster-kits";
-  }
+  const category = getCategoryBySlug(categorySlug);
+  if (category?.detailsPath) return category.detailsPath;
 
   return `/products?category=${categorySlug}`;
+}
+
+export function getCategoryDetailsPath(categorySlug: string) {
+  return getCategoryBySlug(categorySlug)?.detailsPath;
 }

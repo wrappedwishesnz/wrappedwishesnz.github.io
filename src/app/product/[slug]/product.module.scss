@@ -13,15 +13,31 @@
   padding: 0 32px;
 }
 
-.back {
-  display: inline-block;
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
   margin-bottom: 32px;
   font-size: 14px;
   font-weight: 600;
   color: var(--ink-soft);
 
-  &:hover {
+  a {
     color: var(--wine);
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  > span:last-child {
+    max-width: min(48ch, 100%);
+    overflow: hidden;
+    color: var(--ink-soft);
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -228,6 +244,15 @@
 }
 
 @media (max-width: 720px) {
+  .breadcrumbs {
+    margin-bottom: 24px;
+    font-size: 14px;
+
+    > span:last-child {
+      width: 100%;
+    }
+  }
+
   .category {
     font-size: 13px;
   }

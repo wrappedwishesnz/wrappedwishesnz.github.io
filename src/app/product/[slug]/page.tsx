@@ -12,7 +12,6 @@ import { ProductGallery } from "@/components/products/gallery";
 import { RelatedProducts } from "@/components/products/related";
 import styles from "./product.module.scss";
 import Enquiry from "@/components/enquiry";
-import { getCategoryPath } from "@/data/categories";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -71,7 +70,8 @@ export default async function ProductPage({ params }: Props) {
   const productUrl = `${siteUrl}/product/${slug}`;
   const images = getProductImages(product);
   const formattedPrice = formatProductPrice(product);
-  const categoryPath = getCategoryPath(product.categorySlug);
+  const categoryPath = `/products?category=${product.categorySlug}`;
+  const shopUrl = `${siteUrl}/products`;
   const categoryUrl = `${siteUrl}${categoryPath}`;
 
   const productJsonLd = {
@@ -100,7 +100,7 @@ export default async function ProductPage({ params }: Props) {
 
   const productBreadcrumb = {
     "@type": "ListItem",
-    position: 3,
+    position: 4,
     name: product.name,
     item: productUrl,
   };
@@ -118,6 +118,12 @@ export default async function ProductPage({ params }: Props) {
       {
         "@type": "ListItem",
         position: 2,
+        name: "Shop",
+        item: shopUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: getCategoryLabel(product),
         item: categoryUrl,
       },
@@ -142,9 +148,13 @@ export default async function ProductPage({ params }: Props) {
         />
 
         <div className={styles.wrap}>
-          <Link href={categoryPath} className={styles.back}>
-            ← Back to {getCategoryLabel(product)}
-          </Link>
+          <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+            <Link href="/products">Shop</Link>
+            <span aria-hidden="true">/</span>
+            <Link href={categoryPath}>{getCategoryLabel(product)}</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{product.name}</span>
+          </nav>
 
           <div className={styles.grid}>
             <ProductGallery images={images} alt={product.name} />

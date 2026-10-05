@@ -3,8 +3,9 @@
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { activeCategories } from "@/data";
-import { getCategoryPath } from "@/data/categories";
+import { getCategoryDetailsPath } from "@/data/categories";
 
 import styles from "./filter.module.scss";
 
@@ -20,6 +21,9 @@ export function CategoryFilter() {
     c => c.slug === activeCategory
   );
   const subcategories = activeCategoryData?.subcategories ?? [];
+  const detailsPath = activeCategoryData
+    ? getCategoryDetailsPath(activeCategoryData.slug)
+    : undefined;
 
   function updateParams(next: { category?: string; sub?: string }) {
     const params = new URLSearchParams(searchParams.toString());
@@ -48,12 +52,12 @@ export function CategoryFilter() {
           onClick={() => updateParams({ category: "all" })}
         />
         {activeCategories.map(category => (
-          <Link
+          <Pill
             key={category.slug}
-            href={getCategoryPath(category.slug)}
-            className={styles.pill}>
-            <span className={styles.label}>{category.name}</span>
-          </Link>
+            label={category.name}
+            active={activeCategory === category.slug}
+            onClick={() => updateParams({ category: category.slug })}
+          />
         ))}
       </div>
 
@@ -75,6 +79,13 @@ export function CategoryFilter() {
             />
           ))}
         </div>
+      )}
+
+      {detailsPath && activeCategoryData && (
+        <Link href={detailsPath} className={styles.detailsLink}>
+          Learn more about {activeCategoryData.name}
+          <ArrowRight size={17} aria-hidden="true" />
+        </Link>
       )}
     </div>
   );
