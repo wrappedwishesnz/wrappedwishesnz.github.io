@@ -185,6 +185,16 @@ export default async function ProductPage({ params }: Props) {
                   </ul>
                 </div>
               ) : null}
+              {product.themeOptions?.length ? (
+                <div className={styles.options}>
+                  <Title variant="card">Available themes</Title>
+                  <ul>
+                    {product.themeOptions.map(theme => (
+                      <li key={theme}>{theme}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               <Button href="#enquiry" className={styles.cta}>
                 Enquire about this piece
               </Button>

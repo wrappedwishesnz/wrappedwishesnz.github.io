@@ -19,12 +19,13 @@ export type Product = {
   active: boolean;
   featured?: boolean;
   orderOptions?: string[];
+  themeOptions?: string[];
 };
 
 export const products: Product[] = [
   {
     slug: "personalised-birthday-party-bags",
-    name: "Personalised Birthday Party Bags",
+    name: "Birthday Party Bags",
     description:
       "Fun and thoughtful party bags made to match your child's birthday theme. Choose the theme, colours, name and age to create a special favour for each guest.",
     shortDescription:
@@ -50,8 +51,44 @@ export const products: Product[] = [
     featured: true,
   },
   {
+    slug: "plaster-kit-return-gift",
+    name: "Plaster Kit Return Gift",
+    description:
+      "A creative paint-your-own plaster kit that makes a fun and memorable return gift. Choose a theme for the celebration, and we'll include a personalised insert card featuring the birthday child's name, age and your chosen message.",
+    shortDescription:
+      "A themed plaster kit return gift with a personalised birthday insert card.",
+    price: 5,
+    priceFrom: true,
+    currency: "NZD",
+    images: ["/products/plaster-kit-1.jpg", "/products/plaster-kit-2.jpg"],
+    categorySlug: "party-favours",
+    availability: "InStock",
+    sku: "WW-PF-PLASTER-001",
+    keywords: [
+      "plaster kit party favour NZ",
+      "plaster kit return gift",
+      "personalised birthday party favour",
+      "paint your own plaster party favour",
+      "kids craft party favour",
+      "personalised plaster kit",
+    ],
+    active: true,
+    themeOptions: [
+      "Ocean animals",
+      "Dinosaurs",
+      "Astronauts",
+      "Donuts",
+      "Honey bee",
+      "Insects",
+      "Vehicles & transport",
+      "Christmas",
+      "Unicorns & rainbows",
+      "Flowers",
+    ],
+  },
+  {
     slug: "personalised-honey-bee-shaker-cake-topper",
-    name: "Personalised Honey Bee Shaker Cake Topper",
+    name: "Honey Bee Shaker Cake Topper",
     description:
       "A playful honey bee cake topper personalised with your child's name and age. Colourful shaker details and bee-inspired elements make it a fun centrepiece for a special birthday cake.",
     shortDescription:
@@ -77,8 +114,33 @@ export const products: Product[] = [
     featured: true,
   },
   {
+    slug: "mr-and-mrs-wedding-cake-topper",
+    name: "Mr & Mrs Wedding Cake Topper",
+    description:
+      "An elegant Mr & Mrs wedding cake topper cut from sparkling glitter sheet. The flowing script and heart detail create a beautiful finishing touch for your wedding cake and a keepsake from your special day.",
+    shortDescription:
+      "A sparkling Mr & Mrs topper with flowing script and a heart detail.",
+    price: 18,
+    currency: "NZD",
+    images: [
+      "/products/cake-topper-wedding-1.jpg",
+      "/products/cake-topper-wedding-2.jpg",
+    ],
+    categorySlug: "cake-toppers",
+    availability: "InStock",
+    sku: "WW-CT-WEDDING-MRMRS-001",
+    keywords: [
+      "wedding cake topper NZ",
+      "Mr and Mrs cake topper",
+      "glitter wedding cake topper",
+      "wedding cake decoration",
+      "Mr and Mrs wedding topper",
+    ],
+    active: true,
+  },
+  {
     slug: "personalised-dinosaur-cake-topper",
-    name: "Personalised Dinosaur Cake Topper",
+    name: "Dinosaur Cake Topper",
     description:
       "A fun layered dinosaur cake topper made especially for a dinosaur-loving birthday. Add your child's name and age, and choose colours to complement your party theme.",
     shortDescription:
@@ -99,7 +161,7 @@ export const products: Product[] = [
   },
   {
     slug: "personalised-butterfly-cake-topper",
-    name: "Personalised Butterfly Cake Topper",
+    name: "Butterfly Cake Topper",
     description:
       "A delicate layered butterfly cake topper personalised with a name and age. Choose colours to complement the cake and create a beautiful centrepiece for the celebration.",
     shortDescription:
@@ -121,7 +183,7 @@ export const products: Product[] = [
   },
   {
     slug: "personalised-soccer-cake-topper",
-    name: "Personalised Soccer Cake Topper",
+    name: "Soccer Cake Topper",
     description:
       "A custom soccer cake topper for football-loving birthday celebrations. Add a name and age, then choose colours and details to complement the party theme or favourite team.",
     shortDescription:
@@ -147,7 +209,7 @@ export const products: Product[] = [
   },
   {
     slug: "personalised-rainbow-cake-topper",
-    name: "Personalised Rainbow Cake Topper",
+    name: "Rainbow Cake Topper",
     description:
       "A cheerful rainbow cake topper personalised with a name and age, surrounded by fluffy clouds and sparkling stars. Choose your colours to create a bright addition to any birthday cake.",
     shortDescription:
@@ -190,7 +252,7 @@ export const products: Product[] = [
   },
   {
     slug: "magnetic-photo-prints",
-    name: "Personalised Photo Magnets",
+    name: "Photo Magnets",
     description:
       "Turn favourite photos into personalised magnets for the fridge, office or a thoughtful keepsake. Share your chosen images and we'll turn your memories into something you can enjoy every day.",
     shortDescription:
@@ -211,7 +273,7 @@ export const products: Product[] = [
   },
   {
     slug: "personalised-keychains",
-    name: "Personalised Keychains",
+    name: "Keychains",
     description:
       "A small personalised gift made with your chosen name, wording or design. Perfect for birthdays, thank-yous, party favours or keeping a special name close at hand.",
     shortDescription:
@@ -231,7 +293,7 @@ export const products: Product[] = [
   },
   {
     slug: "personalised-stacking-calendar",
-    name: "Personalised Stacking Calendar",
+    name: "Stacking Calendar",
     description:
       "A reusable stacking calendar designed for your home, desk or as a thoughtful gift. Personalise the wording, colours and finishing details to create a practical keepsake you'll enjoy year after year.",
     shortDescription:

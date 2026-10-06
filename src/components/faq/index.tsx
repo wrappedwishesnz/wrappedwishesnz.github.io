@@ -54,27 +54,35 @@ export default function FAQPage() {
           __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <div className={styles.inner}>
-        <Reveal as="div" className={styles.heading}>
-          <Eyebrow className={styles.eyebrow}>FAQ</Eyebrow>
-          <Title as="h1" variant="page">
-            A few things you might be wondering.
-          </Title>
-          <Paragraph variant="lead">
-            From personalisation to delivery, here are answers to some of our
-            most common questions.
-          </Paragraph>
-        </Reveal>
-
-        <div className={styles.faqs}>
-          {faqs.map(faq => (
-            <Reveal as="div" className={styles.item} key={faq.question}>
-              <Title variant="card">{faq.question}</Title>
-              <Paragraph>{faq.answer}</Paragraph>
-            </Reveal>
-          ))}
+      <header className={styles.hero}>
+        <div className={styles.inner}>
+          <Reveal as="div" className={styles.heading}>
+            <Eyebrow className={styles.eyebrow}>FAQ</Eyebrow>
+            <Title as="h1" variant="page">
+              A few things you might be wondering.
+            </Title>
+            <Paragraph variant="lead">
+              From personalisation to delivery, here are answers to some of our
+              most common questions.
+            </Paragraph>
+          </Reveal>
         </div>
-      </div>
+      </header>
+
+      <section
+        className={styles.answers}
+        aria-label="Frequently asked questions">
+        <div className={styles.inner}>
+          <div className={styles.faqs}>
+            {faqs.map(faq => (
+              <Reveal as="div" className={styles.item} key={faq.question}>
+                <Title variant="card">{faq.question}</Title>
+                <Paragraph>{faq.answer}</Paragraph>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

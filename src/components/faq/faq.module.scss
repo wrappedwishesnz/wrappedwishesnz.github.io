@@ -1,15 +1,15 @@
 @use "@/styles/mixins" as *;
 
 .page {
-  padding: 160px 40px;
+  background: var(--paper);
+}
 
-  @media (max-width: 720px) {
-    padding: 130px 0 30px;
-  }
+.hero {
+  padding: 160px 40px 64px;
   background: var(--paper);
 
-  @include mobile {
-    padding: 76px 0;
+  @media (max-width: 720px) {
+    padding: 130px 0 48px;
   }
 }
 
@@ -18,9 +18,17 @@
   max-width: 900px;
 }
 
+.answers {
+  padding: 72px 40px 100px;
+  background: var(--paper-alt);
+
+  @include mobile {
+    padding: 52px 0 72px;
+  }
+}
+
 .heading {
   text-align: center;
-  margin-bottom: 56px;
 
   h1 {
     font-size: clamp(32px, 4vw, 46px);
@@ -48,6 +56,7 @@
 .item {
   padding: 26px 30px;
   background: var(--paper);
+  border: 1px solid rgba(43, 27, 34, 0.06);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
 
