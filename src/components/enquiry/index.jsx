@@ -37,7 +37,6 @@ export default function Enquiry({ isContactForm = false, productName }) {
     product: productName ?? PRODUCTS[0],
   });
   const [form, setForm] = useState(createInitialForm);
-
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null); // success | error
 
@@ -70,7 +69,7 @@ export default function Enquiry({ isContactForm = false, productName }) {
           quantity: form.quantity,
           eventDate: form.eventDate,
           location: form.location,
-          message: [form.message].join("\n\n"),
+          message: [form.message, `Page: ${window.location.href}`].join("\n\n"),
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
