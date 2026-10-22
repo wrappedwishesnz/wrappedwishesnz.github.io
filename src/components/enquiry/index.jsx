@@ -68,14 +68,9 @@ export default function Enquiry({ isContactForm = false, productName }) {
           email: form.email,
           product: form.product,
           quantity: form.quantity,
-          event_date: form.eventDate,
-          delivery_location: form.location,
-          message: [
-            form.message,
-            `Quantity: ${form.quantity || "Not provided"}`,
-            `Event date: ${form.eventDate || "Not provided"}`,
-            `Delivery town/postcode: ${form.location || "Not provided"}`,
-          ].join("\n\n"),
+          eventDate: form.eventDate,
+          location: form.location,
+          message: [form.message].join("\n\n"),
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
